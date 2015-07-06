@@ -1,0 +1,36 @@
+@font-face {
+    font-family: "UniversforKPMG";
+    src: url('../fonts/UniversforKPMG-Obl.ttf') format('truetype') /* Safari, Android, iOS */
+}
+@font-face {
+    font-family: "UniversforKPMG Black";
+    src: url('../fonts/UniversforKPMG-Black.ttf') format('truetype') /* Safari, Android, iOS */
+}
+@font-face {
+    font-family: "UniversforKPMG BlackObl";
+    src: url('../fonts/UniversforKPMG-BlackObl.ttf') format('truetype') /* Safari, Android, iOS */
+}
+@font-face {
+    font-family: "UniversforKPMG Bold";
+    src: url('../fonts/UniversforKPMG-Bold.ttf') format('truetype') /* Safari, Android, iOS */
+}
+@font-face {
+    font-family: "UniversforKPMG BoldObl";
+    src: url('../fonts/UniversforKPMG-BoldObl.ttf') format('truetype') /* Safari, Android, iOS */
+}
+@font-face {
+    font-family: "UniversforKPMG Cond";
+    src: url('../fonts/UniversforKPMG-Cond.ttf') format('truetype') /* Safari, Android, iOS */
+}
+@font-face {
+    font-family: "UniversforKPMG Light";
+    src: url('../fonts/UniversforKPMG-Light.ttf') format('truetype') /* Safari, Android, iOS */
+}
+@font-face {
+    font-family: "UniversforKPMG LightObl";
+    src: url('../fonts/UniversforKPMG-LightObl.ttf') format('truetype') /* Safari, Android, iOS */
+}
+@font-face {
+    font-family: "UniversforKPMG Obl";
+    src: url('../fonts/UniversforKPMG-Obl.ttf') format('truetype') /* Safari, Android, iOS */
+}
