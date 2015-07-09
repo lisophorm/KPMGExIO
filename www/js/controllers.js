@@ -53,12 +53,52 @@ angular.module('starter.controllers', [])
         $scope.$on('slideBox.slideChanged', function (event, index) {
             console.debug('Slide box has been changed, current index is ' + index);
         });
+
+        $scope.slideChanged = function(index) {
+            console.log("client slide changed!"+index);
+
+        };
+
             if ($stateParams.slideNum) {
                 $scope.myActiveSlide = $stateParams.slideNum;
                // $ionicSlideBoxDelegate.slide($stateParams.slideNum)
                 console.log("ciao clients" + $stateParams.slideNum);
             } else {
+                $scope.myActiveSlide = 0;
                 console.log("client cazzonoparam");
             }
+
+    }).controller("WorldController",function($scope, $location, $stateParams,$ionicSlideBoxDelegate) {
+        $scope.$on('slideBox.slideChanged', function (event, index) {
+            console.debug('Slide box has been changed, current index is ' + index);
+        });
+
+        $scope.slideChanged = function(index) {
+            console.log("world slide changed!"+index);
+
+        };
+        $scope.$on('$ionicView.enter', function(){
+            console.log("afterenter splashcontroller");
+
+            if ($stateParams.slideNum) {
+
+                $scope.myActiveSlide = $stateParams.slideNum;
+
+                // $ionicSlideBoxDelegate.slide($stateParams.slideNum)
+
+
+
+
+
+            } else {
+
+                $scope.myActiveSlide = 0;
+
+
+
+            }
+
+        });
+
 
     })

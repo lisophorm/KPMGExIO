@@ -38,9 +38,16 @@ angular.module('starter', ['ionic', 'starter.controllers','ngRetina'])
             })
 
             .state('world', {
+                url: "/world/:slideNum",
+
+                templateUrl: "templates/world.html",
+                controller: 'WorldController'
+
+            }).state('world2', {
                 url: "/world",
 
-                templateUrl: "templates/world.html"
+                templateUrl: "templates/world.html",
+                controller: 'WorldController'
 
             })
             .state('clients2', {
