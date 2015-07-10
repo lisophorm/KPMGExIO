@@ -40,8 +40,26 @@ angular.module('starter.controllers', [])
     }, 1000);
   };
 }).controller("SplashController",function($scope) {
+        $scope.$on('$ionicView.beforeEnter', function(){
+            console.log("beforeEnter splashcontroller");
+
+            move("#KPMGheader")
+                .set('height','0px')
+                .duration('0.5s')
+                .end();
+
+        });
         $scope.$on('$ionicView.afterEnter', function(){
-            console.log("afterenter splashcontroller");
+            console.log("afterEnter splashcontroller");
+        });
+
+        $scope.$on('$ionicView.afterLeave', function(){
+            console.log("afterLeave splashcontroller");
+
+            move("#KPMGheader")
+                .set('height','89px')
+                .duration('0.5s')
+                .end();
         });
 
     }).controller("KPMGController",function($scope) {

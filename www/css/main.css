@@ -1,4 +1,3 @@
-
 .navButton {
 
 }
@@ -81,3 +80,143 @@
 
 }
 
+/* top nab */
+#navbutworld {
+	display: block;
+	font-family: UniversforKPMG;
+	color: #c84e00;
+	width: 300px;
+	height: 46px;
+	font-size: 14.6px;/* Approximation due to font substitution */
+	font-weight: 300;
+	line-height: 18px;/* Approximation due to font substitution */
+	text-align: left;
+	position: absolute;
+	top: 27px;
+	left: 263px;
+}
+#navbutworld a {
+	width: 300px;
+	height: 46px;
+	display: block;
+	color: #c84e00;
+	text-decoration: none;
+	background-image: url(../img/roundworld.png);
+	background-repeat: no-repeat;
+	background-position: 174px 0px;
+	width: 320px;
+	height: 46px;
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	transition: all .5s ease;
+}
+#navbutworld a:active {
+	background-position: 174px 0px;
+
+}
+#navbutkpmg {
+		display:block;
+	font-family: UniversforKPMG;
+	width:300px;
+	height:46px;
+	font-size: 14.6px;/* Approximation due to font substitution */
+	font-weight: 300;
+	line-height:  18px;/* Approximation due to font substitution */
+	text-align: left;
+	position: absolute;
+	top: 27px;
+	left: 829px;
+}
+#navbutkpmg a {
+	width: 300px;
+	height: 46px;
+	display: block;
+	color: #009fda;
+	text-decoration: none;
+	background-image: url(../img/roundkpmg.png);
+	background-repeat: no-repeat;
+	background-position: 104px 0px;
+	width: 320px;
+	height: 46px;
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	transition: all .5s ease;
+}
+#navbutkpmg a:active {
+	background-position: 104px 0px;
+
+}
+#navbutclients {
+	display:block;
+	font-family: UniversforKPMG;
+	color: #c84e00;
+	width:300px;
+	height:46px;
+	font-size: 14.6px;/* Approximation due to font substitution */
+	font-weight: 300;
+	line-height:  18px;/* Approximation due to font substitution */
+	text-align: left;
+	position: absolute;
+	top: 27px;
+	left: 543px;
+}
+#navbutclients a {
+	width: 300px;
+	height: 46px;
+	display: block;
+	color: #3b4e70;
+	text-decoration: none;
+	background-image: url(../img/roundclients.png);
+	background-repeat: no-repeat;
+	background-position: 174px 0px;
+	width: 320px;
+	height: 46px;
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	transition: all .5s ease;
+}
+#navbutclients a:active {
+	background-position: 174px 0px;
+
+}
+#toplogo {
+	display: block;
+	font-family: UniversforKPMG;
+	color: #c84e00;
+	width: 300px;
+	height: 85px;
+	font-size: 23px;/* Approximation due to font substitution */
+	font-weight: 300;
+	line-height: 23px;/* Approximation due to font substitution */
+	text-align: left;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+#toplogo a {
+	width: 300px;
+	height: 85px;
+	display: block;
+	color: #3b4e70;
+	text-decoration: none;
+	background-image: url(../img/kpmglogo.png);
+	background-repeat: no-repeat;
+	background-position: 27px 24px;
+	width: 320px;
+	height: 85px;
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	transition: all .5s ease;
+}
+
+#KPMGheader {
+    width:100%;
+    height: 89px;
+    position: relative;
+
+
+}
+
+#KPMGheader .open {
+    top:0px;
+}
