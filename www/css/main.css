@@ -1,3 +1,7 @@
+.world {
+	color:  #c84e00;
+}
+
 .navButton {
 
 }
@@ -53,31 +57,43 @@
     position: absolute;
     z-index: 10;
 }
+
+.mainMenuWrap {
+    width: 200px;
+    height:220px;
+}
 .mainMenu a {
+
     display:block;
-    height: 120px;
+    height: 162px;
     text-decoration: none;
 
     -webkit-transition: all .5s ease;
     -moz-transition: all .5s ease;
     transition: all .5s ease;
     background-image:url("../img/worldarrow.png");
-    background-clip:content-box;
     background-repeat: no-repeat;
-    background-position: 1px 90px;
+    background-position: 1px 140px;
+    padding-bottom: 40px;
 }
 .mainMenu a:active {
-    background-position: 15px 90px;
+    background-position: 15px 140px;
 }
 
 .mainMenu .desc {
     font-family: UniversforKPMG Light;
     color: #717171;
     font-size: 11.36px;
-    position:absolute;
-    margin-top: 70px;
+	line-height:12.5px;
 
 
+
+}
+
+.box {
+    margin-left:284px;
+    margin-top:0px;
+    height:500px;
 }
 
 /* top nab */
@@ -211,7 +227,7 @@
 
 #KPMGheader {
     width:100%;
-    height: 89px;
+    height: 0px;
     position: relative;
 
 
