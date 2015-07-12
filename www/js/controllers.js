@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+var myApp=angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   
@@ -48,13 +48,110 @@ angular.module('starter.controllers', [])
                 .duration('0.5s')
                 .end();
 
+
+
         });
         $scope.$on('$ionicView.afterEnter', function(){
             console.log("afterEnter splashcontroller");
+
+            move("#homeheader")
+                .set('opacity','1')
+                .duration('2s')
+                .end();
+
+            move("#homeheader")
+                .set('letter-spacing','10px')
+                .duration('2s')
+                .delay('0.3s')
+                .end();
+
+
+            move("#homebutworld")
+                .set('opacity','1')
+                .duration('0.5s')
+                .delay('0.8s')
+                .end();
+
+            move("#homebutclients")
+                .set('opacity','1')
+                .duration('0.5s')
+                .delay('1.1s')
+                .end();
+
+            move("#homebutkpmg")
+                .set('opacity','1')
+                .duration('0.5s')
+                .delay('1.4s')
+                .end();
+
+            move("#homesliceleft")
+                .set('opacity','1')
+                .duration('0.5s')
+                .delay('0.3s')
+                .end();
+
+            move("#homeslicecentre")
+                .set('opacity','1')
+                .duration('0.5s')
+                .delay('0.6s')
+                .end();
+
+            move("#homesliceright")
+                .set('opacity','1')
+                .duration('0.5s')
+                .delay('0.9s')
+                .end();
+
+        });
+
+        $scope.$on('$ionicView.beforeLeave', function(){
+            console.log("afterLeave splashcontroller");
+
+            move("#homesliceright")
+                .set('opacity','0')
+                .duration('0.1s')
+                .end();
+
+            move("#homesliceleft")
+                .set('opacity','0')
+                .duration('0.2s')
+                .end();
+
+            move("#homeslicecentre")
+                .set('opacity','0')
+                .duration('0.3s')
+                .end();
+
         });
 
         $scope.$on('$ionicView.afterLeave', function(){
             console.log("afterLeave splashcontroller");
+
+            move("#homebutworld")
+                .set('opacity','0')
+                .duration('0.5s')
+                .end();
+
+            move("#homebutclients")
+                .set('opacity','0')
+                .duration('0.5s')
+                .end();
+
+            move("#homebutkpmg")
+                .set('opacity','0')
+                .duration('0.5s')
+                .end();
+
+
+            move("#homeheader")
+                .set('opacity','0')
+                .duration('0s')
+                .end();
+
+            move("#homeheader")
+                .set('letter-spacing','0px')
+                .duration('0s')
+                .end();
 
             move("#KPMGheader")
                 .set('height','89px')
@@ -89,39 +186,49 @@ angular.module('starter.controllers', [])
                 $ionicSlideBoxDelegate.slide(0);
             }
 
-    }).controller("WorldController",function($scope, $location, $stateParams,$ionicSlideBoxDelegate) {
-        $scope.$on('slideBox.slideChanged', function (event, index) {
-            console.debug('Slide box has been changed, current index is ' + index);
-        });
+    });
 
-        $scope.playJulio = function(){
-            console.log("pressed julio");
+myApp.controller("WorldController",function($scope, $location, $stateParams,$ionicSlideBoxDelegate,$ionicModal) {
+    $scope.$on('slideBox.slideChanged', function (event, index) {
+        console.debug('Slide box has been changed, current index is ' + index);
+    });
 
-        };
-        $scope.callSlide = function(theIndex){
-            console.log("pressed slide"+theIndex);
-            $ionicSlideBoxDelegate.slide(theIndex);
-        };
+    $scope.playJulio = function(){
+        console.log("pressed julio");
 
-
-        $scope.slideChanged = function(index) {
-            console.log("world slide changed!"+index);
-
-        };
-        $scope.$on('$ionicView.beforeEnter', function(){
-            console.log("afterenter splashcontroller");
-
-            if ($stateParams.slideNum) {
-                $ionicSlideBoxDelegate.slide( $stateParams.slideNum);
-
-                // $ionicSlideBoxDelegate.slide($stateParams.slideNum)
-
-            } else {
-                $ionicSlideBoxDelegate.slide(0);
-
-            }
-
-        });
+    };
+    $scope.callSlide = function(theIndex){
+        console.log("pressed slide"+theIndex);
+        $ionicSlideBoxDelegate.slide(theIndex);
+    };
 
 
-    })
+    $scope.slideChanged = function(index) {
+        console.log("world slide changed!"+index);
+        /* switch(index) {
+         case n:
+         code block
+         break;
+         //default:
+         // default code block
+         }*/
+
+    };
+    $scope.$on('$ionicView.beforeEnter', function(){
+        console.log("afterenter splashcontroller");
+
+        if ($stateParams.slideNum) {
+            $ionicSlideBoxDelegate.slide( $stateParams.slideNum);
+
+            // $ionicSlideBoxDelegate.slide($stateParams.slideNum)
+
+        } else {
+            $ionicSlideBoxDelegate.slide(0);
+
+        }
+
+    });
+
+
+});
+

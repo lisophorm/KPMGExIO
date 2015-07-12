@@ -6,18 +6,18 @@
             <ion-slide>
                 <div class="box">
                     <div class="row">
-<div class="mainMenuWrap">
-    <div class="mainMenu world">
-                        <a href="#" ng-click="callSlide(1)" class="world">Welcome<br/>from Julio<br/>
+                        <div class="mainMenuWrap">
+                            <div class="mainMenu world">
+                                <a href="#" ng-click="callSlide(1)" class="world">Welcome<br/>from Julio<br/>
                         <span class="mainMenu desc">
                             Welcome video<br/>
                         </span></a>
-                    </div>
-</div>
+                            </div>
+                        </div>
 
                         <div class="mainMenuWrap">
                             <div class="mainMenu world">
-                                <a href="#"  ng-click="callSlide(2)"  class="world">The changing<br/>nature of<br/>work
+                                <a href="#" ng-click="callSlide(2)" class="world">The changing<br/>nature of<br/>work
                         <span class="mainMenu desc">
                             <br/><br/>this is the description<br/>this is the second row<br/>
                         </span></a>
@@ -26,30 +26,32 @@
 
                         <div class="mainMenuWrap">
                             <div class="mainMenu world">
-                                <a href="#" ng-click="callSlide(3)"  class="world">The age<br/>of the<br/>customer
+                                <a href="#" ng-click="callSlide(3)" class="world">The age<br/>of the<br/>customer
                         <span class="mainMenu desc">
                             <br/><br/>this is the description<br/>this is the second row<br/>
                         </span></a>
                             </div>
                         </div>
-</div>
-                    <div class="row"><div class="mainMenuWrap">
-                        <div class="mainMenu world">
-                            <a href="#"  ng-click="callSlide(4)"  class="world">Client<br/>perspectives<br/>on customer
+                    </div>
+                    <div class="row">
+                        <div class="mainMenuWrap">
+                            <div class="mainMenu world">
+                                <a href="#" ng-click="callSlide(4)" class="world">Client<br/>perspectives<br/>on
+                                    customer
                         <span class="mainMenu desc">
                             <br/><br/>this is the description<br/>this is the second row<br/>
                         </span></a>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="mainMenuWrap">
-                        <div class="mainMenu world">
-                            <a href="#"  ng-click="callSlide(5)"  class="world">Four<br/>Market<br/>Imperatives
+                        <div class="mainMenuWrap">
+                            <div class="mainMenu world">
+                                <a href="#" ng-click="callSlide(5)" class="world">Four<br/>Market<br/>Imperatives
                         <span class="mainMenu desc">
                             <br/><br/>this is the description<br/>this is the second row<br/>
                         </span></a>
+                            </div>
                         </div>
-                    </div>
 
                     </div>
 
@@ -59,35 +61,37 @@
             </ion-slide>
 
             <ion-slide>
-                <div class="holder" style="top:0px;left: 165px;">
-                    <img ng-src="../img/world/skyscraper.png" width="648" height="691">
+                <div class="holder" style="top:0px;left: 320px;">
+                    <img ng-src="img/world/skyscraper.png" width="648" height="691" class="skyscraper">
                 </div>
-                <div class="holder" style="top:255px;left: 369px;" ng-click="playJulio()">
-                    <img ng-src="../img/world/video_title.png" width="343" height="112">
+                <div class="holder" id="playJulio" style="top:255px;left: 369px;" ng-click="playJulio()">
+                    <img ng-src="img/world/video_title.png" width="343" height="112">
                 </div>
                 <!--div class="holder" style="top:200px;left: 405px;">
                     <img src="../img/world/video%20title%20press.png">
                 </div-->
             </ion-slide>
             <ion-slide>
-                <div class="box" style="margin-left: 0px;margin-top: 0px; height: 800px;"><div class="holder" style="top:72px;left: 290px;">
-                    <img src="../img/world/upper_quote.png" width="370" height="136">
+                <div class="box" style="margin-left: 0px;margin-top: 0px; height: 800px;" ng-controller="FullscreenImageCtrl">
+                    <div class="holder" style="top:72px;left: 290px;">
+                        <img ng-src="img/world/upper_quote.png" width="370" height="136">
+                    </div>
+                    <div class="holder" style="top:270px;left: 290px;">
+                        <img ng-src="img/world/age_of_manuf.png" width="165" height="112" ng-click="showImage(1)">
+                    </div>
+                    <div class="holder" style="top:270px;left: 468px;">
+                        <img src="img/world/age_of_distrib.png" width="154" height="105">
+                    </div>
+                    <div class="holder" style="top:270px;left: 646px;">
+                        <img src="img/world/age_of_info.png" width="150" height="104">
+                    </div>
+                    <div class="holder" style="top:270px;left: 824px;">
+                        <img src="img/world/age_of_customer.png" width="127" height="109">
+                    </div>
+                    <div class="holder" style="top:450px;left: 285px;height: 265px;">
+                        <img src="img/world/quote.png" width="617" height="265">
+                    </div>
                 </div>
-                <div class="holder" style="top:270px;left: 290px;">
-                    <img src="../img/world/age_of_manuf.png" width="165" height="112">
-                </div>
-                <div class="holder" style="top:270px;left: 468px;">
-                    <img src="../img/world/age_of_distrib.png" width="154" height="105">
-                </div>
-                <div class="holder" style="top:270px;left: 646px;">
-                    <img src="../img/world/age_of_info.png" width="150" height="104">
-                </div>
-                <div class="holder" style="top:270px;left: 824px;">
-                    <img src="../img/world/age_of_customer.png" width="127" height="109">
-                </div>
-                <div class="holder" style="top:450px;left: 285px;height: 265px;">
-                    <img src="../img/world/quote.png" width="617" height="265">
-                </div></div>
 
             </ion-slide>
             <ion-slide>
