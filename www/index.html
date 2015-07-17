@@ -11,17 +11,18 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/pages.css" rel="stylesheet">
+    <link href="css/retina.css" rel="stylesheet">
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-
+    <script src="lib/jquery/dist/jquery.min.js"></script>
     <script src="lib/angular-retina/lib/angular-retina.js"></script>
 
+    <script src="lib/ngvideo/dist/ng-video.min.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
@@ -29,6 +30,8 @@
     <!-- your app's js -->
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
+    <script src="js/clientscontroller.js"></script>
+    <script src="js/kpmgcontroller.js"></script>
     <script src="js/popup.js"></script>
 </head>
 
@@ -37,9 +40,9 @@
     <div id="toplogo"><a href="#/app">&#xA0;</a></div>
     <div id="navbutworld"><a href="#/world/0">HOW HAS THE<br>
         <strong>WORLD</strong> CHANGED</a></div>
-    <div id="navbutclients"><a href="#">HOW HAVE OUR<br>
+    <div id="navbutclients"><a href="#/clients/0">HOW HAVE OUR<br>
         <strong>CLIENTS</strong> CHANGED</a></div>
-    <div id="navbutkpmg"><a href="#">HOW CAN<br>
+    <div id="navbutkpmg"><a href="#/kpmg/0">HOW CAN<br>
         <strong>KPMG</strong> HELP</a></div>
 
 </div>
@@ -51,6 +54,15 @@
         </ion-pane>
     </div>
 </script>
+<script id="video-popover.html" type="text/ng-template">
+    <div class="modal transparent fullscreen-player" ng-click="closeModalVideo()">
+        <video id="myVideoPlayer" ng-src="{{clipSrc}}" class="centerme" controls="controls" autoplay></video>
+    </div>
+</script>
 <script src="js/move.min.js"></script>
+<script>
+
+
+</script>
 </body>
 </html>

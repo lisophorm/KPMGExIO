@@ -159,36 +159,9 @@ var myApp=angular.module('starter.controllers', [])
                 .end();
         });
 
-    }).controller("KPMGController",function($scope) {
-        $scope.$on('$ionicView.afterEnter', function(){
-            console.log("afterenter KPMGcontroller");
-        });
-
-    }).controller("ClientsController",function($scope, $location, $stateParams,$ionicSlideBoxDelegate) {
-        $scope.$on('slideBox.slideChanged', function (event, index) {
-            console.debug('Slide box has been changed, current index is ' + index);
-        });
-
-        $scope.slideChanged = function(index) {
-            console.log("client slide changed!"+index);
-
-        };
-
-
-
-            if ($stateParams.slideNum) {
-                //$scope.myActiveSlide = $stateParams.slideNum;
-                $ionicSlideBoxDelegate.slide($stateParams.slideNum);
-                console.log("ciao clients" + $stateParams.slideNum);
-            } else {
-                //$scope.myActiveSlide = 0;
-                console.log("client cazzonoparam");
-                $ionicSlideBoxDelegate.slide(0);
-            }
-
     });
 
-myApp.controller("WorldController",function($scope, $location, $stateParams,$ionicSlideBoxDelegate,$ionicModal) {
+myApp.controller("WorldController",function($scope, $location, $stateParams,$ionicSlideBoxDelegate,$ionicModal,$ionicScrollDelegate,$timeout) {
     $scope.$on('slideBox.slideChanged', function (event, index) {
         console.debug('Slide box has been changed, current index is ' + index);
     });
@@ -203,20 +176,82 @@ myApp.controller("WorldController",function($scope, $location, $stateParams,$ion
     };
 
 
+    $scope.parallax=function(eventData) {
+
+        var yTilt = Math.round((-eventData.beta + 90) * (40 / 180) - 40);
+        var xTilt = Math.round(-eventData.gamma * (40 / 180) - 20);
+        if (xTilt > 0) {
+            xTilt = -xTilt;
+        } else if (xTilt < -40) {
+            xTilt = -(xTilt + 80);
+        }
+
+        var backgroundPositionVal = xTilt + 'px ' + yTilt + 'px';
+        console.log("defaultorientaitonevent WORLD "+xTilt+" "+yTilt);
+        console.log("defaultorientaitonevent WORLD "+xTilt+" "+yTilt);
+        $('.leftCorner').stop();
+
+        $('.leftCorner').animate({
+            'background-position-x': xTilt + 'px',
+            'background-position-y': yTilt + 'px'
+        }, 10);
+
+        $('.rightcone').stop();
+
+        $('.rightcone').animate({
+            'background-position-x': xTilt + 'px',
+            'background-position-y': yTilt + 'px'
+        }, 10);
+    }
+
     $scope.slideChanged = function(index) {
+
         console.log("world slide changed!"+index);
-        /* switch(index) {
-         case n:
-         code block
-         break;
-         //default:
-         // default code block
-         }*/
+        $ionicScrollDelegate.scrollTop(true);
+        var slide = document.getElementsByClassName("slider");
+
+        var alt = 800;
+        switch (index) {
+
+            case 1:
+                alt = 693;
+                break;
+            case 2:
+                alt = 571+265;
+                break;
+            case 3:
+                alt = 470+79;
+                break;
+            case 4:
+                alt = 680;
+                break;
+            default:
+                alt=800;
+                break;
+
+        }
+
+        $(".slider").height(alt);
+        $(".scroll").height(alt);
+        $(".slider-slides").height(alt);
+        console.log("KPMG slide changed!" + index + " height:" + $(".slider").height());
+        /*$timeout( function() {
+
+            $ionicScrollDelegate.resize();
+        }, 50);*/
 
     };
-    $scope.$on('$ionicView.beforeEnter', function(){
-        console.log("afterenter splashcontroller");
 
+    $scope.$on('$ionicView.afterLeave', function () {
+        console.log("World afterLeave");
+        window.removeEventListener('deviceorientation', $scope.parallax, true);
+    });
+    $scope.$on('$ionicView.beforeEnter', function () {
+        console.log("beforeEnter KPMGcontroller");
+
+        window.addEventListener('deviceorientation', $scope.parallax , false);
+
+        $(".slider-pager-page.active").css("stroke","#9f0 !important;");
         if ($stateParams.slideNum) {
             $ionicSlideBoxDelegate.slide( $stateParams.slideNum);
 
@@ -227,7 +262,15 @@ myApp.controller("WorldController",function($scope, $location, $stateParams,$ion
 
         }
 
+        move("#KPMGheader")
+            .set('height', '89px')
+            .duration('0.5s')
+            .end();
+
     });
+
+
+
 
 
 });

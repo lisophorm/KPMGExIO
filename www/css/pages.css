@@ -3,26 +3,27 @@
 	pointer-events: none;
 	opacity: 0;
 	position: absolute;
-	width: 472px;
+	width: 471px;
 	height: 768px;
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	top: 0px;
 	left: 0px;
 	background-image: url(../pageimg/left.png);
+	background-size: 471px 768px;
 }
 #homeslicecentre {
 	opacity: 0;
 	background-image: url(../pageimg/middle_panel.png);
 	background-repeat: no-repeat;
-	background-repeat: no-repeat;
 	background-position: 0px 0px;
-	width: 566px;
+	width: 616px;
 	height: 768px;
 	position: absolute;
 	top: 0px;
-	left: 243px;
+	left: 220px;
 	pointer-events: none;
+	background-size: 616px 768px;
 }
 #homesliceright {
 	pointer-events: none;
@@ -30,11 +31,12 @@
 	background-image: url(../pageimg/right_panel.png);
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
-	width: 1024px;
+	width: 470px;
 	height: 768px;
 	position: absolute;
 	top: 0px;
-	left: 0px;
+	left: 555px;
+	background-size: 470px 768px;
 }
 
 #homeheader {
@@ -73,6 +75,7 @@
 	color: #c84e00;
 	text-decoration: none;
 	background-image: url(../pageimg/worldround.png);
+	background-size: 45px 45px;
 	background-repeat: no-repeat;
 	background-position: 235px 0px;
 	width:320px;
@@ -105,6 +108,7 @@
 	display:block;
 	color:  #009fda;
 	text-decoration: none;
+	background-size: 45px 45px;
 	background-image: url(../pageimg/kpmground.png);
 	background-repeat: no-repeat;
 	background-position: 155px 0px;
@@ -139,6 +143,7 @@
 	display:block;
 	color: #3b4e70;
 	text-decoration: none;
+	background-size: 45px 45px;
 	background-image: url(../pageimg/clientsround.png);
 	background-repeat: no-repeat;
 	background-position: 235px 0px;
@@ -163,3 +168,29 @@
 	-webkit-clip-path: polygon(31% 0, 81% 0, 51% 100%, 1% 100%);
 	clip-path: polygon(31% 0, 81% 0, 51% 100%, 1% 100%);
 }
+
+.my_hotspot {
+
+	position: absolute;
+	background-repeat:repeat;
+	background-image: url("../img/hotspot.png");
+	z-index: 10;
+}
+
+/* evolution overlay */
+
+.evolOverlay {
+	 top:0px;
+	 left:0px;
+	 background-image: url("../img/blackbg.png");
+	 z-index: 100;
+	 background-repeat: repeat;
+	 width: 1024px;
+	 height: 1080px;
+
+ }
+
+.evolOverlay img {
+	margin-top: 392px;
+}
+

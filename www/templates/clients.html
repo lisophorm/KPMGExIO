@@ -1,22 +1,196 @@
 <ion-view view-title="Clients">
-  <ion-content>
-    <ion-slide-box active-slide="myActiveSlide">
-      <ion-slide>
-        <div class="box blue"><h1>CLIENTS1</h1></div>
-      </ion-slide>
-      <ion-slide>
-        <div class="box yellow"><h1>CLIENTS2</h1></div>
-      </ion-slide>
-      <ion-slide>
-        <div class="box pink"><h1>CLIENTS3</h1></div>
-      </ion-slide>
-      <ion-slide>
-        <div class="box blue"><h1>CLIENTS4</h1></div>
-      </ion-slide>
-      <ion-slide>
-        <div class="box yellow"><h1>CLIENTS5</h1></div>
-      </ion-slide>
-    </ion-slide-box>
+    <ion-content>
 
-  </ion-content>
+
+
+            <ion-slide-box active-slide="myActiveSlide" on-slide-changed="slideChanged(index)">
+                <ion-slide>
+                    <div class="box">
+                        <div class="row">
+                            <div class="mainMenuWrap">
+                                <div class="mainMenu clients">
+                                    <a href="#" ng-click="callSlide(1)" class="clients">evolution of<br/>the
+                                        customer<br/>focussed<br/>organisation<br/>
+                        <span class="mainMenu desc">
+                            <br/>a framework for guaging your clients maturity in focusing on its customers
+                        </span></a>
+                                </div>
+                            </div>
+
+                            <div class="mainMenuWrap">
+                                <div class="mainMenu clients">
+                                    <a href="#" ng-click="callSlide(2)" class="clients">CUSTOMER IS<br/>KING (OR
+                                        QUEEN)<br/>
+                        <span class="mainMenu desc">
+                            <br/>Key stats a of a shift in emphasis towards 'customer'
+                        </span></a>
+                                </div>
+                            </div>
+
+                            <div class="mainMenuWrap">
+                                <div class="mainMenu clients">
+                                    <a href="#" ng-click="callSlide(3)" class="clients">MARKET<br/>OPPORTUNITY
+                        <span class="mainMenu desc">
+                            <br/
+                        </span></a>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="row">
+
+                            <div class="mainMenuWrap">
+                                <div class="mainMenu clients">
+                                    <a href="#" ng-click="callSlide(4)" class="clients">SEIZE THE<br/>OPPORTUNITY<br/>OR
+                                        DECLINE?
+                        <span class="mainMenu desc">
+                           <br/>The consulting market opportunity in numbers
+                        </span></a>
+                                </div>
+                            </div>
+
+                            <div class="mainMenuWrap">
+                                <div class="mainMenu clients">
+                                    <a href="#" ng-click="callSlide(5)" class="clients">THE<br/>Elevator<br/>Pitch
+                        <span class="mainMenu desc">
+                             <br/>the benefits and value we typically deliver through a focus on CX
+                        </span></a>
+                                </div>
+                            </div>
+
+                            <div class="mainMenuWrap">
+                                <div class="mainMenu clients">
+                                    <a href="#" ng-click="callSlide(6)" class="clients">Why customer experience matters
+                                        to our clients
+                        <span class="mainMenu desc">
+                             <br/>the impact of bad experiences to your clients organization
+                        </span></a>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+<div class="row">                        <div class="mainMenuWrap">
+                            <div class="mainMenu clients">
+                                <a href="#" ng-click="callSlide(7)" class="clients">what<br/>succesful<br/>clients do to<br/>succeed
+
+                        <span class="mainMenu desc">
+                            <br/>the practical steps that will drive success in the real world
+                        </span></a>
+                            </div>
+                        </div></div>
+
+
+                    </div>
+
+                    </div>
+                </ion-slide>
+                <ion-slide style="height: 1024px;">
+                    <div class="holder" style="top:0px;left:0px;">
+                        <img ng-src="img/clients/slide_clients_2.jpg" width="1024" height="1025">
+                    </div>
+                    <div class="holder" id="evoHotSpots" style="top:0px;left:0px;">
+                        <div class="my_hotspot" style="width: 82px;height: 76px;top: 560px;left: 409px;" ng-target="G1"
+                             ng-click="evolPopup('G1')"></div>
+                        <div class="my_hotspot" style="width: 82px;height: 76px;top: 560px;left: 519px;" ng-target="G1"
+                             ng-click="evolPopup('G2')"></div>
+                        <div class="my_hotspot" style="width: 82px;height: 76px;top: 560px;left: 629px;" ng-target="G1"
+                             ng-click="evolPopup('G3')"></div>
+                        <div class="my_hotspot" style="width: 82px;height: 76px;top: 560px;left: 734px;" ng-target="G4"
+                             ng-click="evolPopup('G4')"></div>
+                        <div class="my_hotspot" style="width: 82px;height: 76px;top: 647px;left: 409px;" ng-target="b1"
+                             ng-click="evolPopup('B1')"></div>
+                        <div class="my_hotspot" style="width: 82px;height: 76px;top: 647px;left: 519px;" ng-target="B2"
+                             ng-click="evolPopup('B2')"></div>
+                        <div class="my_hotspot" style="width: 82px;height: 76px;top: 647px;left: 629px;" ng-target="B3"
+                             ng-click="evolPopup('B3')"></div>
+                        <div class="my_hotspot" style="width: 82px;height: 76px;top: 647px;left: 734px;" ng-target="B4"
+                             ng-click="evolPopup('B4')"></div>
+                        <div class="my_hotspot" style="width: 82px;height: 76px;top: 734px;left: 409px;" ng-target="R1"
+                             ng-click="evolPopup('R1')"></div>
+                        <div class="my_hotspot" style="width: 82px;height: 76px;top: 734px;left: 519px;" ng-target="R2"
+                             ng-click="evolPopup('R2')"></div>
+                        <div class="my_hotspot" style="width: 82px;height: 76px;top: 734px;left: 629px;" ng-target="R3"
+                             ng-click="evolPopup('R3')"></div>
+                        <div class="my_hotspot" style="width: 82px;height: 76px;top: 734px;left: 734px;" ng-target="R4"
+                             ng-click="evolPopup('R4')"></div>
+                        <div class="my_hotspot" style="width: 82px;height: 76px;top: 821px;left: 409px;" ng-target="o1"
+                             ng-click="evolPopup('O1')"></div>
+                        <div class="my_hotspot" style="width: 82px;height: 76px;top: 821px;left: 519px;" ng-target="O2"
+                             ng-click="evolPopup('O2')"></div>
+                        <div class="my_hotspot" style="width: 82px;height: 76px;top: 821px;left: 629px;" ng-target="O3"
+                             ng-click="evolPopup('O3')"></div>
+                        <div class="my_hotspot" style="width: 82px;height: 76px;top: 821px;left: 734px;" ng-target="O4"
+                             ng-click="evolPopup('O4')"></div>
+                    </div>
+                    <div class="holder" style="top:0px;left:0px;">
+                        <div class="evolOverlay" id="evolpopup">
+                            <img ng-src="{{evolSrc}}" width="1024" height="542" class="fullscreen-image"
+                                 ng-click="evolClose()"/>
+                        </div>
+                    </div>
+                </ion-slide>
+                <ion-slide>
+                    <div class="holder" style="top:0px;left:0px;">
+                        <img ng-src="img/clients/clients_3.png" width="1024" height="561">
+                    </div>
+                </ion-slide>
+                <ion-slide>
+                    <div class="holder" style="top: 80px;left: 291px;">
+                        <img ng-src="img/clients/clients_4.png" width="657" height="680">
+                    </div>
+                </ion-slide>
+                <ion-slide>
+                    <div class="holder" style="top:0px;left:0px;">
+                        <img ng-src="img/clients/full_clients_5.png" width="1024" height="679">
+                    </div>
+                </ion-slide>
+                <ion-slide>
+                    <div class="holder" style="top: 81px;left: 291px;">
+                        <img ng-src="img/clients/full_clients_6.png" width="635" height="802">
+                    </div>
+                </ion-slide>
+                <ion-slide>
+                    <div class="holder" style="top:0px;left:0px;">
+                        <img ng-src="img/clients/clients_7.jpg" width="1024" height="1675">
+                    </div>
+                </ion-slide>
+                <ion-slide >
+                    <div class="holder" style="top:0px;left:0px;" ng-controller="FullscreenImageCtrl">
+                        <div class="holder" style="top: 80px;left: 290px;">
+                        <img ng-src="img/clients/client_08_txt.png" width="662" height="435">
+                    </div>
+
+                        <div class="holder" style="top: 595px;left: 291px;;">
+                            <img ng-src="img/clients/Personalisation.png" width="662" height="80" ng-click="showImage(5)">
+                        </div>
+                        <div class="holder" style="top: 740px;left: 291px;">
+                            <img ng-src="img/clients/Expectation.png" width="662" height="80" ng-click="showImage(6)">
+                        </div>
+                        <div class="holder" style="top: 853px;left: 291px;">
+                            <img ng-src="img/clients/Resolution.png" width="662" height="80" ng-click="showImage(7)">
+                        </div>
+                        <div class="holder" style="top: 965px;left: 291px;">
+                            <img ng-src="img/clients/Integrity.png" width="662" height="80" ng-click="showImage(8)">
+                        </div>
+                        <div class="holder" style="top: 1079px;left: 291px;">
+                            <img ng-src="img/clients/time_effort.png" width="662" height="81" ng-click="showImage(9)">
+                        </div>
+                        <div class="holder" style="top: 1191px;left: 287px;">
+                            <img ng-src="img/clients/Empathy.png" width="662" height="108" ng-click="showImage(10)">
+                        </div>
+
+                    </div>
+
+                </ion-slide>
+            </ion-slide-box>
+
+    </ion-content>
+    <div class="rightcone clients"></div>
+    <div class="leftCorner clients"><div class="holder" style="top: 31px;left: 31px;"><img ng-src="img/title_kpmg.png" width="131" height="111" ></div>
+    </div>
 </ion-view>

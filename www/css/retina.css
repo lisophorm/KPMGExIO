@@ -1,0 +1,72 @@
+@media
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+
+    .mainMenu.clients a {
+        background-image:url("../img/clientsarrow.png");
+        background-size: 14px 23px
+    }
+
+    .mainMenu.kpmg a {
+        background-image:url("../img/kpmgarrow.png");
+        background-size: 14px 23px;
+    }
+
+
+    .mainMenu a {
+
+        background-image:url("../img/worldarrow@2x.png");
+        background-size: 14px 23px;
+
+    }
+
+
+    #navbutworld a {
+
+        background-image: url(../img/roundworld@2x.png);
+        background-size: 34px 34px;
+
+    }
+
+
+    #navbutkpmg a {
+
+        background-image: url(../img/roundkpmg@2x.png);
+        background-size: 34px 34px;
+
+    }
+
+
+    #navbutclients a {
+
+        background-image: url(../img/roundclients@2x.png);
+        background-size: 34px 34px;
+
+    }
+
+
+    #toplogo a {
+        background-image: url(../img/kpmglogo@2x.png);
+        background-size: 120px 42px;
+
+    }
+
+    #homesliceleft {
+        background-size: 471px 768px;
+        background-image: url(../pageimg/left@2x.png);;
+    }
+    #homeslicecentre {
+        background-image: url(../pageimg/middle_panel@2x.png);
+        background-size: 616px 768px;
+
+
+    }
+    #homesliceright {
+
+        background-image: url(../pageimg/right_panel@2x.png);
+
+        background-size: 470px 768px;
+    }
+
+
+}
