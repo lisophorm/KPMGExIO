@@ -290,15 +290,17 @@
 
 /* video popup */
 
-.video {
-	margin-top: 40%;
-	margin-top: 40%;
-}
+
 
 .centerme {
 	margin: 0 auto;
 	width: 100%;
 	height:100%;
+}
+
+.centermeVideo {
+	margin: 0 auto;
+
 }
 
 .fullscreen-player {
@@ -342,6 +344,12 @@
 	width: 272px;
 	height: 916px;
 	background-size: 292px 942px;
+}
+
+.leftCorner img {
+	margin-left: 20px;
+	margin-top: 20px;
+
 }
 
 .leftCorner.clients {

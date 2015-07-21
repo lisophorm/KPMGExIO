@@ -125,9 +125,13 @@ myApp.controller('VideoCtrl',
         });
 
         $scope.playVideo = function (theClip) {
+
+            var ref = window.open('http://www.google.com', '_blank', 'toolbar=yes,enableViewportScale=yes,location=yes,width=300');
+            /*
+
             console.log("play vidweo:"+theClip);
             $scope.clipSrc = theClip;
-            $scope.openModal();
+            $scope.openModal(); */
 
         }
 
