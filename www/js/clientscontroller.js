@@ -66,8 +66,8 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
 
     }
     $scope.callSlide = function(theIndex){
-        console.log("pressed slide"+theIndex);
-        $ionicSlideBoxDelegate.slide(theIndex);
+        console.log("CLIENTS pressed slide"+theIndex);
+        $ionicSlideBoxDelegate.$getByHandle('ClientSwipeDelegate').slide(theIndex);
     };
 
     $scope.evolClose=function() {
@@ -118,7 +118,7 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
         $(".slider").height(alt);
         $(".scroll").height(alt);
         $(".slider-slides").height(alt);
-        console.log("KPMG slide changed!" + index + " height:" + $(".slider").height());
+        console.log("CLIENTS slide changed!" + index + " height:" + $(".slider").height());
         /*$timeout( function() {
 
             $ionicScrollDelegate.resize();

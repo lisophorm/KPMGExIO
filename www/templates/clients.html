@@ -3,7 +3,7 @@
 
 
 
-            <ion-slide-box active-slide="myActiveSlide" on-slide-changed="slideChanged(index)">
+            <ion-slide-box active-slide="myActiveSlide" on-slide-changed="slideChanged(index)" delegate-handle="ClientSwipeDelegate">
                 <ion-slide>
                     <div class="box">
                         <div class="row">
@@ -31,7 +31,7 @@
                                 <div class="mainMenu clients">
                                     <a href="#" ng-click="callSlide(3)" class="clients">MARKET<br/>OPPORTUNITY
                         <span class="mainMenu desc">
-                            <br/
+                            <br/>
                         </span></a>
                                 </div>
                             </div>
@@ -89,7 +89,7 @@
 
                     </div>
                 </ion-slide>
-                <ion-slide style="height: 1024px;">
+                <ion-slide style="height: 1024px;" ng-controller="EvolCtrl">
                     <div class="holder" style="top:0px;left:0px;">
                         <img ng-src="img/clients/slide_clients_2.jpg" width="1024" height="1025">
                     </div>
@@ -129,8 +129,11 @@
                     </div>
                     <div class="holder" style="top:0px;left:0px;">
                         <div class="evolOverlay" id="evolpopup">
-                            <img ng-src="{{evolSrc}}" width="1024" height="542" class="fullscreen-image"
-                                 ng-click="evolClose()"/>
+                            <!--ion-slide-box>
+                                <ion-slide ng-repeat="oImage in evolImages">
+                                    <img ng-src="{{oImage.src}}" width="{{oImage.width}}" height="{{oImage.height}}" />
+                                </ion-slide>
+                            </ion-slide-box-->
                         </div>
                     </div>
                 </ion-slide>
@@ -160,28 +163,28 @@
                     </div>
                 </ion-slide>
                 <ion-slide >
-                    <div class="holder" style="top:0px;left:0px;" ng-controller="FullscreenImageCtrl">
+                    <div class="holder" style="top:0px;left:0px;" ng-controller="SlideSwipeCtrl">
                         <div class="holder" style="top: 80px;left: 290px;">
                         <img ng-src="img/clients/client_08_txt.png" width="662" height="435">
                     </div>
 
                         <div class="holder" style="top: 595px;left: 291px;;">
-                            <img ng-src="img/clients/Personalisation.png" width="662" height="80" ng-click="showImage(5)">
+                            <img ng-src="img/clients/Personalisation.png" width="662" height="80" ng-click="goToSlide(0,1)">
                         </div>
                         <div class="holder" style="top: 740px;left: 291px;">
-                            <img ng-src="img/clients/Expectation.png" width="662" height="80" ng-click="showImage(6)">
+                            <img ng-src="img/clients/Expectation.png" width="662" height="80" ng-click="goToSlide(1,1)">
                         </div>
                         <div class="holder" style="top: 853px;left: 291px;">
-                            <img ng-src="img/clients/Resolution.png" width="662" height="80" ng-click="showImage(7)">
+                            <img ng-src="img/clients/Resolution.png" width="662" height="80" ng-click="goToSlide(2,1)">
                         </div>
                         <div class="holder" style="top: 965px;left: 291px;">
-                            <img ng-src="img/clients/Integrity.png" width="662" height="80" ng-click="showImage(8)">
+                            <img ng-src="img/clients/Integrity.png" width="662" height="80" ng-click="goToSlide(3,1)">
                         </div>
                         <div class="holder" style="top: 1079px;left: 291px;">
-                            <img ng-src="img/clients/time_effort.png" width="662" height="81" ng-click="showImage(9)">
+                            <img ng-src="img/clients/time_effort.png" width="662" height="81" ng-click="goToSlide(4,1)">
                         </div>
                         <div class="holder" style="top: 1191px;left: 287px;">
-                            <img ng-src="img/clients/Empathy.png" width="662" height="108" ng-click="showImage(10)">
+                            <img ng-src="img/clients/Empathy.png" width="662" height="108" ng-click="goToSlide(5,1)">
                         </div>
 
                     </div>

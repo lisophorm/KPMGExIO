@@ -35,6 +35,7 @@
     <script src="js/controllers.js"></script>
     <script src="js/clientscontroller.js"></script>
     <script src="js/kpmgcontroller.js"></script>
+    <script src="js/worldcontroller.js"></script>
     <script src="js/popup.js"></script>
 </head>
 
@@ -62,10 +63,31 @@
         <video id="myVideoPlayer" class="centermeVideo" ng-src="{{clipSrc}}" width="1024" height="768" controls="controls" autoplay></video>
     </div>
 </script>
-<script src="js/move.min.js"></script>
-<script>
+<script id="image-modal2.html" type="text/ng-template">
+    <div class="modal image-modal transparent"
+         ng-click="closeModal()">
+        <ion-slide-box on-slide-changed="slideChanged(index)"
+                       show-pager="false" delegate-handle="PopupSwipe">
+            <ion-slide style="background-color: transparent;" ng-repeat="oImage in aImages">
+                <img ng-src="{{oImage.src}}" class="fullscreen-image" width="{{oImage.width}}" height="{{oImage.height}}" />
+            </ion-slide>
+        </ion-slide-box>
+    </div>
+</script>
+<script id="image-modal3.html" type="text/ng-template">
 
+    <div class="modal image-modal transparent" popover-window-placement="top" style="position: absolute;top:50px;left: 80px;"
+         ng-click="closeModal()">
+        <ion-slide-box on-slide-changed="slideChanged(index)"
+                       show-pager="false" delegate-handle="EvolSwipe" active-slide="evolActiveSlide">
+            <ion-slide style="background-color: transparent;" ng-repeat="oImage in evolImages">
+                <img ng-src="{{oImage.src}}" style="position: absolute;top: 481px; left: 0px;" width="{{oImage.width}}" height="{{oImage.height}}" />
+            </ion-slide>
+        </ion-slide-box>
+    </div>
 
 </script>
+
+<script src="js/move.min.js"></script>
 </body>
 </html>

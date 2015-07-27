@@ -1,7 +1,8 @@
 <ion-view view-title="World">
     <ion-content>
 
-        <ion-slide-box active-slide="myActiveSlide" on-slide-changed="slideChanged(index)">
+        <ion-slide-box active-slide="myActiveSlide" on-slide-changed="slideChanged(index)" delegate-handle="WorldSwipe">
+
             <ion-slide>
                 <div class="box">
                     <div class="row">
@@ -70,21 +71,21 @@
                 </div-->
             </ion-slide>
             <ion-slide>
-                <div class="holder" style="left: 0px;top: 0px; height: 800px;" ng-controller="FullscreenImageCtrl">
+                <div class="holder" style="left: 0px;top: 0px; height: 800px;" ng-controller="SlideSwipeCtrl">
                     <div class="holder" style="top: 93px;left: 290px;">
                         <img ng-src="img/world/upper_quote.png" width="370" height="136">
                     </div>
                     <div class="holder" style="top: 304px;left: 271px;">
-                        <img ng-src="img/world/age_of_manuf.png" width="191" height="128" ng-click="showImage(1)">
+                        <img ng-src="img/world/age_of_manuf.png" width="191" height="128" ng-click="goToSlide(0,0)">
                     </div>
                     <div class="holder" style="top: 304px;left: 462px;">
-                        <img ng-src="img/world/age_of_distrib.png" width="173" height="128"  ng-click="showImage(2)">
+                        <img ng-src="img/world/age_of_distrib.png" width="173" height="128"  ng-click="goToSlide(1,0)">
                     </div>
                     <div class="holder" style="top: 304px;left: 635px;">
-                        <img ng-src="img/world/age_of_info.png" width="176" height="128"  ng-click="showImage(3)">
+                        <img ng-src="img/world/age_of_info.png" width="176" height="128"  ng-click="goToSlide(2,0)">
                     </div>
                     <div class="holder" style="top: 304px;left: 811px;">
-                        <img ng-src="img/world/age_of_customer.png" width="180" height="128"  ng-click="showImage(4)">
+                        <img ng-src="img/world/age_of_customer.png" width="180" height="128"  ng-click="goToSlide(3,0)">
                     </div>
                     <div class="holder" style="top: 478px;left: 285px;">
                         <img ng-src="img/world/quote.png" width="617" height="265">

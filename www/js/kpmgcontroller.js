@@ -12,7 +12,7 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
     $scope.$on('$ionicView.beforeEnter', function () {
         console.log("beforeEnter KPMGcontroller");
 
-            $(".slider-pager-page").css("opacity",0.3);
+            //$(".slider-pager-page").css("opacity",0.3);
 
         move("#KPMGheader")
             .set('height', '89px')
@@ -70,12 +70,13 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
 
     });
     $scope.callSlide = function (theIndex) {
-        console.log("pressed slide" + theIndex);
-        $ionicSlideBoxDelegate.slide(theIndex);
+        console.log("KPMG pressed slide" + theIndex);
+        $ionicSlideBoxDelegate.$getByHandle('KPMGSwipeHandle').slide(theIndex);
     };
 
 
-    $scope.slideChanged = function (index) {
+    $scope.slideChangedKPMG = function (index) {
+        console.log("slidechanged main kpmg controller");
         $ionicScrollDelegate.scrollTop(true);
         var slide = document.getElementsByClassName("slider");
 
@@ -126,7 +127,7 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
 
 
     $scope.$on('$ionicView.beforeEnter', function () {
-        console.log("afterenter splashcontroller");
+        console.log("beforeEnter splashcontroller KPMG");
 
         if ($stateParams.slideNum) {
             $ionicSlideBoxDelegate.slide($stateParams.slideNum);
