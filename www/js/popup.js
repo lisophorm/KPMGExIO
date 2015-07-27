@@ -471,3 +471,4 @@ myApp.controller('EvolCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate',
     };
 }
 ]);
+
