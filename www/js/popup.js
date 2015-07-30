@@ -382,7 +382,7 @@ myApp.controller('EvolCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate',
     }
     ];
 
-    $ionicModal.fromTemplateUrl('image-modal3.html', {
+    $ionicModal.fromTemplateUrl('image-modal4.html', {
         scope: $scope,
         animation: 'slide-in-up'
     }).then(function(modal) {

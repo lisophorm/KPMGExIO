@@ -17,6 +17,7 @@ angular.module('starter', ['ionic', 'ui.router','ngCordova', 'ngPDFViewer','star
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
+            screen.lockOrientation('landscape');
         });
     })
 
