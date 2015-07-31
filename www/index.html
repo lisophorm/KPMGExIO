@@ -11,7 +11,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/pages.css" rel="stylesheet">
-    <link href="css/retina.css" rel="stylesheet">
+    <!--link href="css/retina.css" rel="stylesheet"-->
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
@@ -76,65 +76,17 @@
         </ion-slide-box>
     </div>
 </script>
-<script id="image-modal4.html" type="text/ng-template">
-
-    <div class="modal image-modal transparent" style="position: absolute;top:50px;left: 80px;"
+<script id="image-modal3.html" type="text/ng-template">
+    <div class="modal image-modal transparent"
          ng-click="closeModal()">
-        <ion-slide-box on-slide-changed="slideChanged(index)"
-                       show-pager="false" delegate-handle="EvolSwipe" active-slide="evolActiveSlide">
-            <ion-slide style="background-color: transparent;">
-                <img ng-src="img/popups/B1.png" width="1024" height="542"/>
-            </ion-slide>
-            <ion-slide style="background-color: transparent;">
-                <img ng-src="img/popups/B1.png" width="1024" height="542"/>
-            </ion-slide>
-            <ion-slide style="background-color: transparent;">
-                <img ng-src="img/popups/B1.png" width="1024" height="542"/>
-            </ion-slide>
-            <ion-slide style="background-color: transparent;">
-                <img ng-src="img/popups/B1.png" width="1024" height="542"/>
-            </ion-slide>
-            <ion-slide style="background-color: transparent;">
-                <img ng-src="img/popups/B1.png" width="1024" height="542"/>
-            </ion-slide>
-            <ion-slide style="background-color: transparent;">
-                <img ng-src="img/popups/B1.png" width="1024" height="542"/>
-            </ion-slide>
-            <ion-slide style="background-color: transparent;">
-                <img ng-src="img/popups/B1.png" width="1024" height="542"/>
-            </ion-slide>
-            <ion-slide style="background-color: transparent;">
-                <img ng-src="img/popups/B1.png" width="1024" height="542"/>
-            </ion-slide>
-            <ion-slide style="background-color: transparent;">
-                <img ng-src="img/popups/B1.png" width="1024" height="542"/>
-            </ion-slide>
-            <ion-slide style="background-color: transparent;">
-                <img ng-src="img/popups/B1.png" width="1024" height="542"/>
-            </ion-slide>
-            <ion-slide style="background-color: transparent;">
-                <img ng-src="img/popups/B1.png" width="1024" height="542"/>
-            </ion-slide>
-            <ion-slide style="background-color: transparent;">
-                <img ng-src="img/popups/B1.png" width="1024" height="542"/>
-            </ion-slide>
-            <ion-slide style="background-color: transparent;">
-                <img ng-src="img/popups/B1.png" width="1024" height="542"/>
-            </ion-slide>
-            <ion-slide style="background-color: transparent;">
-                <img ng-src="img/popups/B1.png" width="1024" height="542"/>
-            </ion-slide>
-            <ion-slide style="background-color: transparent;">
-                <img ng-src="img/popups/B1.png" width="1024" height="542"/>
-            </ion-slide>
-            <ion-slide style="background-color: transparent;">
-                <img ng-src="img/popups/B1.png" width="1024" height="542"/>
+        <ion-slide-box show-pager="false" delegate-handle="EvolutionSwipe">
+            <ion-slide style="background-color: transparent;" ng-repeat="oImage in aImages">
+                <img ng-src="{{oImage.src}}" class="fullscreen-image" width="{{oImage.width}}"
+                     height="{{oImage.height}}"/>
             </ion-slide>
         </ion-slide-box>
     </div>
-
 </script>
-
 <script src="js/move.min.js"></script>
 </body>
 </html>

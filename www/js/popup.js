@@ -305,6 +305,153 @@ myApp.controller('SlideSwipeCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDele
 }
 ]);
 
+myApp.controller('EvolutionSwipeCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate', function ($scope, $ionicModal, $ionicSlideBoxDelegate) {
+
+    $scope.currentSlideGroup=99;
+
+    $scope.aImages = [{
+        'src' : 'img/popups/B1.png',
+        'width' : 1024,
+        'height' : 542
+    }, {
+        'src' : 'img/popups/B2.png',
+        'width' : 1024,
+        'height' : 542
+    },{
+        'src' : 'img/popups/B3.png',
+        'width' : 1024,
+        'height' : 542
+    },{
+        'src' : 'img/popups/B4.png',
+        'width' : 1024,
+        'height' : 542
+    },{
+        'src' : 'img/popups/G1.png',
+        'width' : 1024,
+        'height' : 542
+    },{
+        'src' : 'img/popups/G2.png',
+        'width' : 1024,
+        'height' : 542
+    },{
+        'src' : 'img/popups/G3.png',
+        'width' : 1024,
+        'height' : 542
+    },{
+        'src' : 'img/popups/G4.png',
+        'width' : 1024,
+        'height' : 542
+    },{
+        'src' : 'img/popups/O1.png',
+        'width' : 1024,
+        'height' : 542
+    },{
+        'src' : 'img/popups/O2.png',
+        'width' : 1024,
+        'height' : 542
+    },{
+        'src' : 'img/popups/O3.png',
+        'width' : 1024,
+        'height' : 542
+    },{
+        'src' : 'img/popups/O4.png',
+        'width' : 1024,
+        'height' : 542
+    },{
+        'src' : 'img/popups/R1.png',
+        'width' : 1024,
+        'height' : 542
+    },{
+        'src' : 'img/popups/R2.png',
+        'width' : 1024,
+        'height' : 542
+    },{
+        'src' : 'img/popups/R3.png',
+        'width' : 1024,
+        'height' : 542
+    },{
+        'src' : 'img/popups/R4.png',
+        'width' : 1024,
+        'height' : 542
+    }
+    ];
+
+    $ionicModal.fromTemplateUrl('image-modal3.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function(modal) {
+        $scope.modal = modal;
+    });
+
+    $scope.openModal = function() {
+        $ionicSlideBoxDelegate.slide(0);
+        $scope.modal.show();
+    };
+
+    $scope.closeModal = function() {
+        $scope.modal.hide();
+    };
+
+    // Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function() {
+        $scope.modal.remove();
+    });
+    // Execute action on hide modal
+    $scope.$on('modal.hide', function() {
+        console.log('Modal is hidden2!');
+    });
+    // Execute action on remove modal
+    $scope.$on('modal.removed', function() {
+        console.log('Modal is removed2!');
+    });
+    $scope.$on('modal.shown', function() {
+        console.log('Modal is shown2!');
+    });
+
+    // Call this functions if you need to manually control the slides
+    $scope.next = function() {
+        $ionicSlideBoxDelegate.next();
+    };
+
+    $scope.previous = function() {
+        $ionicSlideBoxDelegate.previous();
+    };
+
+    $scope.evolutionOpenPopUp = function(slide) {
+        $scope.modal.show();
+        for (i=0;i<$scope.aImages.length;i++) {
+            if($scope.aImages[i].src.indexOf(slide)!=-1) {
+                console.log("ccc "+$scope.aImages[i].src);
+                corrente=i;
+                break;
+            }
+
+        }
+        setTimeout(function() {
+            $ionicSlideBoxDelegate.$getByHandle('EvolutionSwipe').slide(corrente);
+        },100)
+
+
+        console.log("kickass "+slide);
+    }
+
+    $scope.goToSlide = function(index,groupIndex) {
+        if($scope.currentSlideGroup!=groupIndex) {
+            angular.copy($scope.cImages[groupIndex], $scope.aImages);
+        }
+        console.log(" slidemodal go to slide"+index);
+        $scope.modal.show();
+        $ionicSlideBoxDelegate.$getByHandle('PopupSwipe').slide(index);
+    }
+
+    // Called each time the slide changes
+    $scope.slideChanged = function(index) {
+        console.log("modal2 slidechanged swipe"+ index);
+        $scope.slideIndex = index;
+    };
+}
+]);
+
 myApp.controller('EvolCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate', function ($scope, $ionicModal, $ionicSlideBoxDelegate,$ionicScrollDelegate) {
     console.log("evolution modal");
     $scope.evolActiveSlide=3;
@@ -408,6 +555,7 @@ myApp.controller('EvolCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate',
     });
     // Execute action on remove modal
     $scope.$on('modal.removed', function() {
+
         console.log('Modal is removed2!');
     });
     $scope.$on('modal.shown', function() {
@@ -423,11 +571,7 @@ myApp.controller('EvolCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate',
         $ionicSlideBoxDelegate.previous();
     };
 
-    $scope.goToSlide = function(index) {
-        console.log("GO TO SLIDE"+corrente);
-        $scope.modal.show();
-        $ionicSlideBoxDelegate.$getByHandle('EvolSwipe').slide(index);
-    }
+
     $scope.evolPopup=function(theSlide) {
 
         var corrente=0;
