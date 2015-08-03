@@ -8,12 +8,9 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
 
         window.addEventListener('deviceorientation', $scope.parallax , false);
 
-        $("#evolpopup").hide();
+        $(".evolOverlay").hide(300);
 
-        move("#KPMGheader")
-            .set('height','89px')
-            .duration('0.5s')
-            .end();
+
 
     });
 
@@ -52,34 +49,13 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
         window.removeEventListener('deviceorientation', $scope.parallax, true);
     });
 
-    $scope.evolPopup=function(theSlide) {
-        console.log("EVOLUTION SLIDE"+theSlide);
-        $scope.evolSrc="img/popups/"+theSlide+".png";
 
-        $("#evoHotSpots").hide();
-        $("#evolpopup").show(500);
-        move("#evolpopup")
-            .set('opacity','1')
-            .duration('0.1s').
-            delay('0.1s')
-            .end();
-
-    }
     $scope.callSlide = function(theIndex){
         console.log("CLIENTS pressed slide"+theIndex);
         $ionicSlideBoxDelegate.$getByHandle('ClientSwipeDelegate').slide(theIndex);
     };
 
-    $scope.evolClose=function() {
-        console.log("CLOSE EVOL");
-        move("#evolpopup")
-            .set('opacity','0')
-            .duration('0.3s').
-            delay('0.1s')
-            .end(function() {
-                $("#evoHotSpots").show();
-            });
-    }
+
     $scope.slideChanged = function(index) {
         console.log("clients slide changed!"+index);
         $ionicScrollDelegate.scrollTop(true);

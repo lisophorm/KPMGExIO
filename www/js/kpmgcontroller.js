@@ -14,10 +14,10 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
 
             //$(".slider-pager-page").css("opacity",0.3);
 
-        move("#KPMGheader")
+      /*  move("#KPMGheader")
             .set('height', '89px')
             .duration('0.5s')
-            .end();
+            .end();  */
 
     });
 

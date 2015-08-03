@@ -97,10 +97,10 @@ myApp.controller("WorldController",function($scope, $location, $stateParams,$ion
 
         }
 
-        move("#KPMGheader")
+       /* move("#KPMGheader")
             .set('height', '89px')
             .duration('0.5s')
-            .end();
+            .end(); */
 
     });
 

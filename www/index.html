@@ -40,7 +40,7 @@
 </head>
 
 <body ng-app="starter">
-<div id="KPMGheader">
+<div class="KPMGheader open">
     <div id="toplogo"><a href="#/app">&#xA0;</a></div>
     <div id="navbutworld"><a href="#/world/0">HOW HAS THE<br>
         <strong>WORLD</strong> CHANGED</a></div>
@@ -76,17 +76,7 @@
         </ion-slide-box>
     </div>
 </script>
-<script id="image-modal3.html" type="text/ng-template">
-    <div class="modal image-modal transparent"
-         ng-click="closeModal()">
-        <ion-slide-box show-pager="false" delegate-handle="EvolutionSwipe">
-            <ion-slide style="background-color: transparent;" ng-repeat="oImage in aImages">
-                <img ng-src="{{oImage.src}}" class="fullscreen-image" width="{{oImage.width}}"
-                     height="{{oImage.height}}"/>
-            </ion-slide>
-        </ion-slide-box>
-    </div>
-</script>
+
 <script src="js/move.min.js"></script>
 </body>
 </html>

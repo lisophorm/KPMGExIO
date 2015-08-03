@@ -43,10 +43,10 @@ var myApp=angular.module('starter.controllers', [])
         $scope.$on('$ionicView.beforeEnter', function(){
             console.log("beforeEnter splashcontroller SPLASH");
 
-            move("#KPMGheader")
-                .set('height','0px')
-                .duration('0.5s')
-                .end();
+
+            var header=document.getElementsByClassName("KPMGheader");
+
+            angular.element(header).removeClass("open");
 
 
 
@@ -153,10 +153,14 @@ var myApp=angular.module('starter.controllers', [])
                 .duration('0s')
                 .end();
 
-            move("#KPMGheader")
+
+            var header=document.getElementsByClassName("KPMGheader");
+            angular.element(header).addClass("open");
+
+        /*    move("#KPMGheader")
                 .set('height','89px')
                 .duration('0.5s')
-                .end();
+                .end(); */
         });
 
     });

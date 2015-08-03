@@ -180,6 +180,18 @@
             </ion-slide>
         </ion-slide-box>
 
+
+    <div class="holder evolOverlay" ng-controller="EvolutionSwipeCtrl" style="left: 0px;top:0px;" ng-click="evolClose()">
+            <ion-slide-box show-pager="false" delegate-handle="EvolutionSwipe">
+                <ion-slide style="background: transparent;" ng-repeat="oImage in evolImages">
+                    <img ng-src="{{oImage.src}}" class="fullscreen-image" width="{{oImage.width}}"
+                         height="{{oImage.height}}" />
+                </ion-slide>
+            </ion-slide-box>
+        </div>
+
+
+
     </ion-content>
     <div class="rightcone clients"></div>
     <div class="leftCorner clients"><img ng-src="img/title_clients.png" width="126" height="140">
