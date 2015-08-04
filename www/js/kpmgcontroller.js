@@ -51,6 +51,7 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
     }
 
     $scope.$on('$ionicView.afterLeave', function () {
+
         console.log("KPMG afterLeave");
         window.removeEventListener('deviceorientation', $scope.parallax, true);
     });
@@ -59,13 +60,13 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
 
     console.log("beforeEnter");
 
+        move('#kpmgconeleft').ease('out').x(-272).duration('0').end();
+        move('#kpmgconeright').ease('out').x(93).duration('0').end();
 
             var position = document.getElementById("position");
 
 
                 console.log("defaultorientaitonevent");
-                window.addEventListener('deviceorientation', $scope.parallax , false);
-
 
 
     });
@@ -90,23 +91,23 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
                 alt = 1184;
                 break;
             case 3:
-                alt = 1150;
+                alt = 1200;
                 break;
 
             case 4:
                 alt = 1445;
                 break;
             case 5:
-                alt = 945;
+                alt = 990;
                 break;
             case 6:
                 alt = 1751;
                 break;
             case 7:
-                alt = 671+83;
+                alt = 850+83;
                 break;
             case 8:
-                alt = 770;
+                alt = 850;
                 break;
             default:
                 alt=800;
@@ -125,6 +126,11 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
 
     };
 
+    $scope.$on('$ionicView.afterEnter', function () {
+        move('#kpmgconeleft').ease('out').x(0).duration('0.3s').end();
+        move('#kpmgconeright').ease('out').x(0).duration('0.3s').end();
+        window.addEventListener('deviceorientation', $scope.parallax , false);
+    });
 
     $scope.$on('$ionicView.beforeEnter', function () {
         console.log("beforeEnter splashcontroller KPMG");

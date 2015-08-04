@@ -1,95 +1,3 @@
-myApp.controller('FullscreenImageCtrl',
-    function ($scope, $ionicModal) {
-        console.log("popup controller");
-        $ionicModal.fromTemplateUrl('image-modal.html', {
-            scope: $scope,
-            animation: 'slide-in-up'
-        }).then(function (modal) {
-            $scope.modal = modal;
-        });
-
-        $scope.openModal = function () {
-            $scope.modal.show();
-        };
-
-        $scope.closeModal = function () {
-            $scope.modal.hide();
-        };
-
-        //Cleanup the modal when we're done with it!
-        $scope.$on('$destroy', function () {
-            $scope.modal.remove();
-        });
-        // Execute action on hide modal
-        $scope.$on('modal.hide', function () {
-            // Execute action
-        });
-        // Execute action on remove modal
-        $scope.$on('modal.removed', function () {
-            // Execute action
-        });
-        $scope.$on('modal.shown', function () {
-            console.log('Modal is shown!');
-        });
-
-        $scope.imageSrc = 'img/popups/age_manufatrueing.jpg';
-
-        $scope.showImage = function (index) {
-            console.log("click on showImge:"+index);
-            switch (index) {
-                case 1:
-                    $scope.imageSrc = 'img/popups/age_manufatrueing.jpg';
-                    break;
-                case 2:
-                    $scope.imageSrc = 'img/popups/age_distribution.jpg';
-                    break;
-                case 3:
-                    $scope.imageSrc = 'img/popups/age_informtion.jpg';
-                    break;
-                case 4:
-                    $scope.imageSrc = 'img/popups/age_customer.jpg';
-                    break;
-                // clients
-                case 5:
-                    $scope.imageSrc = 'img/popups/02_popup_01.png';
-                    break;
-                case 6:
-                    $scope.imageSrc = 'img/popups/02_popup_02.png';
-                    break;
-                case 7:
-                    $scope.imageSrc = 'img/popups/02_popup_03.png';
-                    break;
-                case 8:
-                    $scope.imageSrc = 'img/popups/02_popup_04.png';
-                    break;
-                case 9:
-                    $scope.imageSrc = 'img/popups/02_popup_05.png';
-                    break;
-                case 10:
-                    $scope.imageSrc = 'img/popups/02_popup_06.png';
-                    break;
-                // KPMG slide 4
-                case 11:
-                    $scope.imageSrc = 'img/popups/circle1.png';
-                    break;
-                case 12:
-                    $scope.imageSrc = 'img/popups/circle2.png';
-                    break;
-                case 13:
-                    $scope.imageSrc = 'img/popups/circle3.png';
-                    break;
-                case 14:
-                    $scope.imageSrc = 'img/popups/circle4.png';
-                    break;
-                case 15:
-                    $scope.imageSrc = 'img/popups/circle5.png';
-                    break;
-            }
-            $scope.openModal();
-
-        }
-    });
-
 myApp.controller('VideoCtrl',
     function ($scope, $ionicModal,$cordovaMedia) {
         console.log("popup controller");
@@ -133,12 +41,12 @@ myApp.controller('VideoCtrl',
             $scope.clipSrc = theClip;
             $scope.openModal();
 
-        }
+        };
 
         $scope.play = function(src) {
             var media = new Media(src, null, null, mediaStatusCallback);
             $cordovaMedia.play(media);
-        }
+        };
 
         var mediaStatusCallback = function(status) {
             if(status == 1) {
@@ -149,25 +57,26 @@ myApp.controller('VideoCtrl',
         }
     });
 
-myApp.controller('SlideSwipeCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate', function ($scope, $ionicModal, $ionicSlideBoxDelegate) {
+myApp.controller('SlideSwipeCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate', function ($scope, $ionicModal, $ionicSlideBoxDelegate,SlideBoxDelegate,$ionicPlatform) {
+
 
     $scope.currentSlideGroup=99;
 
     $scope.cImages=Array();
     $scope.cImages[0] = [{
-        'src' : 'img/popups/age_manufatrueing.jpg',
+        'src' : 'img/popups/age_manufatrueing.png',
         'width' : 616,
         'height' : 539
     }, {
-        'src' : 'img/popups/age_distribution.jpg',
+        'src' : 'img/popups/age_distribution.png',
         'width' : 616,
         'height' : 539
     }, {
-        'src' : 'img/popups/age_informtion.jpg',
+        'src' : 'img/popups/age_informtion.png',
         'width' : 616,
         'height' : 539
     }, {
-        'src' : 'img/popups/age_customer.jpg',
+        'src' : 'img/popups/age_customer.png',
         'width' : 616,
         'height' : 539
     }];
@@ -201,23 +110,23 @@ myApp.controller('SlideSwipeCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDele
     $scope.cImages[2] = [{
         'src' : 'img/popups/circle1.png',
         'width' : 1024,
-        'height' : 541
+        'height' : 602
     }, {
         'src' : 'img/popups/circle2.png',
         'width' : 1024,
-        'height' : 541
+        'height' : 602
     },{
         'src' : 'img/popups/circle3.png',
         'width' : 1024,
-        'height' : 541
+        'height' : 602
     },{
         'src' : 'img/popups/circle4.png',
         'width' : 1024,
-        'height' : 541
+        'height' : 602
     },{
         'src' : 'img/popups/circle5.png',
         'width' : 1024,
-        'height' : 541
+        'height' : 602
     }];
 
 
@@ -254,6 +163,9 @@ myApp.controller('SlideSwipeCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDele
         $scope.modal = modal;
     });
 
+
+
+
     $scope.openModal = function() {
         $ionicSlideBoxDelegate.slide(0);
         $scope.modal.show();
@@ -288,14 +200,35 @@ myApp.controller('SlideSwipeCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDele
         $ionicSlideBoxDelegate.previous();
     };
 
+    $scope.updateSlider = function () {
+        console.log("UPPDATE SLIDERSLIDEE");
+        $ionicSlideBoxDelegate.$getByHandle('PopupSwipe').update(); //or just return the function
+    };
+
+
+
     $scope.goToSlide = function(index,groupIndex) {
-        if($scope.currentSlideGroup!=groupIndex) {
-            angular.copy($scope.cImages[groupIndex], $scope.aImages);
+       if($scope.currentSlideGroup!=groupIndex) {
+           angular.copy($scope.cImages[groupIndex], $scope.aImages);
         }
-        console.log(" slidemodal go to slide"+index);
         $scope.modal.show();
-        $ionicSlideBoxDelegate.$getByHandle('PopupSwipe').slide(index);
-    }
+        $ionicSlideBoxDelegate.$getByHandle('PopupSwipe').update();
+        $ionicSlideBoxDelegate.$getByHandle('PopupSwipe').slide(0);
+        $scope.modal.hide();
+        $ionicSlideBoxDelegate.update();
+
+        console.log(" slidemodal go to slide"+index);
+
+
+        setTimeout(function() {
+            $ionicSlideBoxDelegate.$getByHandle('PopupSwipe').update();
+            $ionicSlideBoxDelegate.$getByHandle('PopupSwipe').slide(index);
+            console.log("TIMEOUT MADUNNAPUTTANA");
+            $scope.modal.show();
+        },300)
+
+
+    };
 
     // Called each time the slide changes
     $scope.slideChanged = function(index) {
@@ -379,7 +312,7 @@ myApp.controller('EvolutionSwipeCtrl', ['$scope', '$ionicModal', '$ionicSlideBox
     $scope.evolClose = function() {
         console.log("MADONNA PUTTANA");
         $(".evolOverlay").hide(300);
-    }
+    };
 
     $scope.evolutionOpenPopUp=function(theSlide) {
 
@@ -413,13 +346,13 @@ myApp.controller('EvolutionSwipeCtrl', ['$scope', '$ionicModal', '$ionicSlideBox
                 console.log("error swipe TIMER");
             }
             $(".evolOverlay").show(300);
-        },100)
+        },100);
         //$ionicSlideBoxDelegate.$getByHandle('EvolSwipe').slide(0);
 
         //$ionicSlideBoxDelegate.$getByHandle('EvolSwipe').slide(index);
 
 
-    }
+    };
     // Called each time the slide changes
     $scope.slideChanged = function(index) {
         console.log("modal2 slidechanged swipe"+ index);

@@ -55,7 +55,7 @@ myApp.controller("WorldController",function($scope, $location, $stateParams,$ion
                 alt = 571+265;
                 break;
             case 3:
-                alt = 470+79;
+                alt = 800;
                 break;
             case 4:
                 alt = 680;
@@ -80,11 +80,24 @@ myApp.controller("WorldController",function($scope, $location, $stateParams,$ion
     $scope.$on('$ionicView.afterLeave', function () {
         console.log("World afterLeave");
         window.removeEventListener('deviceorientation', $scope.parallax, true);
+
+
+
     });
+
+    $scope.$on('$ionicView.afterEnter', function () {
+        move('#worldconeleft').ease('out').x(0).duration('0.3s').end();
+        move('#worldconeright').ease('out').x(0).duration('0.3s').end();
+        window.addEventListener('deviceorientation', $scope.parallax , false);
+    });
+
     $scope.$on('$ionicView.beforeEnter', function () {
         console.log("beforeEnter KPMGcontroller");
 
-        window.addEventListener('deviceorientation', $scope.parallax , false);
+        move('#worldconeleft').ease('out').x(-272).duration('0').end();
+        move('#worldconeright').ease('out').x(93).duration('0').end();
+
+
 
         //$(".slider-pager-page.active").css("stroke","#9f0 !important;");
         if ($stateParams.slideNum) {

@@ -44,6 +44,12 @@ var myApp=angular.module('starter.controllers', [])
             console.log("beforeEnter splashcontroller SPLASH");
 
 
+            move(".KPMGheader")
+                .set('height','0px')
+                .duration('0.3s')
+                .delay('0.4s')
+                .end();
+
             var header=document.getElementsByClassName("KPMGheader");
 
             angular.element(header).removeClass("open");
@@ -154,14 +160,81 @@ var myApp=angular.module('starter.controllers', [])
                 .end();
 
 
-            var header=document.getElementsByClassName("KPMGheader");
-            angular.element(header).addClass("open");
+            move(".KPMGheader")
+                .set('height','89px')
+                .duration('0.3s')
+                .delay('0.4s')
+                .end();
+
 
         /*    move("#KPMGheader")
                 .set('height','89px')
                 .duration('0.5s')
                 .end(); */
         });
+
+    }).controller('HeaderCtrl', function($scope, $ionicModal, $timeout,$state,$ImageCacheFactory,$ionicSlideBoxDelegate) {
+
+        $scope.goWorld = function() {
+            console.log("CRODINOOO");
+
+            $ImageCacheFactory.Cache([
+                "img/title_world.png",
+                "img/common_world.jpg",
+                "img/title_world@2x.png",
+            ]).then(function(){
+                $state.transitionTo('world', {slideNum:0});
+                $ionicSlideBoxDelegate.$getByHandle('WorldSwipe').slide(0);
+                console.log("Images done loading!");
+            },function(failed){
+                console.log("An image filed: "+failed);
+            });
+
+
+
+
+        }
+
+        $scope.goClients = function() {
+            console.log("CRODINOOOclients");
+
+            $ImageCacheFactory.Cache([
+                "img/title_clients.png",
+                "img/common_clients.jpg",
+                "img/title_clients@2x.png",
+            ]).then(function(){
+                $state.transitionTo('clients2', {slideNum:0});
+                $ionicSlideBoxDelegate.$getByHandle('ClientSwipeDelegate').slide(0);
+                console.log("Images done loading!");
+            },function(failed){
+                console.log("An image filed: "+failed);
+            });
+
+
+
+
+        }
+
+        $scope.goKPMG = function() {
+            console.log("CRODINOOOkpmg");
+
+            $ImageCacheFactory.Cache([
+                "img/title_kpmg.png",
+                "img/common_kpmg.jpg",
+                "img/title_kpmg@2x.png",
+            ]).then(function(){
+                console.log("Images done loading!");
+                $state.transitionTo('kpmg2', {slideNum:0});
+                $ionicSlideBoxDelegate.$getByHandle('KPMGSwipeHandle').slide(0);
+            },function(failed){
+
+                console.log("An image filed: "+failed);
+            });
+
+
+
+
+        }
 
     });
 

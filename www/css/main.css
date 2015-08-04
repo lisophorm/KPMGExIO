@@ -91,8 +91,8 @@
     color: #717171;
     font-size: 11.36px;
 	line-height:12.5px;
-	text-transform:capitalize;
 
+	text-transform: none;
 }
 
 .mainMenu.clients a {
@@ -406,3 +406,32 @@
 	height: 800px;
 }
 
+.slider-pager {
+	position: absolute;
+	top: 10px;
+	z-index: 1;
+	right:20px;
+	height: 15px;
+	text-align: right;
+}
+.slider-pager .slider-pager-page {
+	display: inline-block;
+	margin: 0px 5px;
+	width: 6px;
+	color: #000;
+	text-decoration: none;
+	opacity: 0.3; }
+.slider-pager .slider-pager-page.active {
+	-webkit-transition: opacity 0.4s ease-in;
+	transition: opacity 0.4s ease-in;
+	opacity: 1; }
+
+.slider-pager-page:not(.active) i.icon:before {
+
+	   font-size: 10px;
+   }
+
+.slider-pager-page.active i.icon:before {
+
+	font-size: 12px;
+}

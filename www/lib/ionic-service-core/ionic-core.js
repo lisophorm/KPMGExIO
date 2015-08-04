@@ -1,5 +1,4 @@
 angular.module('ionic.service.core', [])
-
 /**
  * @private
  * Provides a safe interface to store objects in persistent memory
@@ -132,20 +131,14 @@ angular.module('ionic.service.core', [])
  *   });
  * }]);
  */
-.provider('$ionicApp', function($httpProvider) {
+.provider('$ionicApp', ['$httpProvider', function($httpProvider) {
   var app = {};
 
   var settings = {
     'api_server': 'https://apps.ionic.io',
-    'push_api_server': 'https://push.ionic.io'
+    'push_api_server': 'https://push.ionic.io',
+    'analytics_api_server': 'https://analytics.ionic.io'
   };
-
-  /**
-  var settings = {
-    'api_server': 'http://10.0.1.14:8000',
-    'push_api_server': 'http://10.0.1.14:4730'
-  };
-  **/
 
   var _is_cordova_available = function() {
 
@@ -237,28 +230,20 @@ angular.module('ionic.service.core', [])
           var cordova_src = 'cordova.js';
           switch(this.getDeviceTypeByNavigator()) {
             case 'android':
-              /**
-              if (window.location.href.substring(0, 4) === "http") {
-                cordova_src = window.location.href + 'cordova.js';
-              } else {
-                cordova_src = 'file:///android_asset/www/cordova.js';
-              }
-              **/
               if (window.location.href.substring(0, 4) === "file") {
                 cordova_src = 'file:///android_asset/www/cordova.js';
               }
               break;
 
+            case 'ipad':
             case 'iphone':
               try {
-                var resource = window.localStorage.getItem('_ionic_cordova_js_resource');
-                console.log(resource);
-                var web_location = window.localStorage.getItem('_ionic_web_start');
-                var location = "file://" + window.location.pathname;
-                if (location === web_location) {
-                  cordova_src = resource;
+                var resource = window.location.search.match(/cordova_js_bootstrap_resource=(.*?)(&|#|$)/i);
+                if (resource) {
+                  cordova_src = decodeURI(resource[1]);
                 }
               } catch(e) {
+                console.log('Could not find cordova_js_bootstrap_resource query param');
                 console.log(e);
               }
               break;
@@ -280,7 +265,7 @@ angular.module('ionic.service.core', [])
       }
     }
   }];
-})
+}])
 
 /**
 * @ngdoc service
@@ -306,11 +291,12 @@ angular.module('ionic.service.core', [])
 */
 .factory('$ionicUser', [
   '$q',
+  '$ionicCoreSettings',
   '$timeout',
   '$http',
   'persistentStorage',
   '$ionicApp',
-function($q, $timeout, $http, persistentStorage, $ionicApp) {
+function($q, $ionicCoreSettings, $timeout, $http, persistentStorage, $ionicApp) {
       // User object we'll use to store all our user info
 
 
@@ -368,6 +354,12 @@ function($q, $timeout, $http, persistentStorage, $ionicApp) {
 
     _op: function(key, value, type) {
       var u = user.user_id;
+      var appId = '';
+      if ($ionicCoreSettings.get('app_id')) {
+        appId = $ionicCoreSettings.get('app_id')
+      } else {
+        appId = $ionicApp.getId();
+      }
       if(!u) {
         throw new Error("Please call identify with a user_id before calling push");
       }
@@ -375,7 +367,7 @@ function($q, $timeout, $http, persistentStorage, $ionicApp) {
       o['user_id'] = u;
       o[key] = value;
 
-      return $http.post($ionicApp.getApiUrl() + '/api/v1/app/' + $ionicApp.getId() + '/users/' + type, o);
+      return $http.post($ionicApp.getApiUrl() + '/api/v1/app/' + appId + '/users/' + type, o);
     },
     /**
      * Push the given value into the array field identified by the key.
@@ -412,6 +404,12 @@ function($q, $timeout, $http, persistentStorage, $ionicApp) {
       return generateGuid();
     },
     identify: function(userData) {
+      var appId = '';
+      if ($ionicCoreSettings.get('app_id')) {
+        appId = $ionicCoreSettings.get('app_id')
+      } else {
+        appId = $ionicApp.getId();
+      }
       if (!userData.user_id) {
         var msg = 'You must supply a unique user_id field.';
         throw new Error(msg)
@@ -423,13 +421,46 @@ function($q, $timeout, $http, persistentStorage, $ionicApp) {
       // Write the user object to our local storage
       persistentStorage.storeObject(storageKeyName, user);
 
-      return $http.post($ionicApp.getApiUrl() + '/api/v1/app/' + $ionicApp.getId() + '/users/identify', userData);
+      return $http.post($ionicApp.getApiUrl() + '/api/v1/app/' + appId + '/users/identify', userData);
+    },
+    identifyAnonymous: function() {
+      var appId = '';
+      if ($ionicCoreSettings.get('app_id')) {
+        appId = $ionicCoreSettings.get('app_id')
+      } else {
+        appId = $ionicApp.getId();
+      }
+      userData = {};
+      userData['user_id'] = generateGuid();
+      userData['isAnonymous'] = true;
+
+      // Copy all the data into our user object
+      angular.extend(user, userData);
+
+      // Write the user object to our local storage
+      persistentStorage.storeObject(storageKeyName, user);
+
+      return $http.post($ionicApp.getApiUrl() + '/api/v1/app/' + appId + '/users/identify', userData);
     },
     get: function() {
       return user;
     }
   }
 }])
+
+// Auto-generated configuration factory
+.factory('$ionicCoreSettings', function() {
+  var settings = {"app_id":"a193f814","api_key":"5949b5b1b9a32b7f83284d86da8a6b7511e2cd896111bb34"};
+  return {
+    get: function(setting) {
+      if (settings[setting]) {
+        return settings[setting];
+      }
+      return null;
+    }
+  }
+})
+// Auto-generated configuration factory
 
 .run(['$ionicApp', function($ionicApp) {
   console.log('Ionic Core: init');

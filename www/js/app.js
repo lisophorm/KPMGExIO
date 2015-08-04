@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ui.router','ngCordova', 'ngPDFViewer','starter.controllers','ngRetina','ngVideo','ionic.ion.imageCacheFactory'])
+angular.module('starter', ['ionic','ionic.service.core', 'ui.router','ngCordova','starter.controllers','ngRetina','ngVideo','ionic.ion.imageCacheFactory'])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
@@ -25,18 +25,21 @@ angular.module('starter', ['ionic', 'ui.router','ngCordova', 'ngPDFViewer','star
         $stateProvider
 
             .state('app', {
+                cache: true,
                 url: "/app",
                 templateUrl: "templates/welcome.html",
                 controller: 'SplashController'
             })
 
             .state('kpmg', {
+                cache: true,
                 url: "/kpmg",
                 templateUrl: "templates/kpmg.html",
                 controller: 'KPMGController'
 
 
             }).state('kpmg2', {
+                cache: true,
                 url: "/kpmg/:slideNum",
                 templateUrl: "templates/kpmg.html",
                 controller: 'KPMGController'
@@ -45,12 +48,14 @@ angular.module('starter', ['ionic', 'ui.router','ngCordova', 'ngPDFViewer','star
             })
 
             .state('world', {
+                cache: true,
                 url: "/world/:slideNum",
 
                 templateUrl: "templates/world.html",
                 controller: 'WorldController'
 
             }).state('world2', {
+                cache: true,
                 url: "/world",
 
                 templateUrl: "templates/world.html",
@@ -58,12 +63,14 @@ angular.module('starter', ['ionic', 'ui.router','ngCordova', 'ngPDFViewer','star
 
             })
             .state('clients2', {
+                cache: true,
                 url: "/clients/:slideNum",
 
                 templateUrl: "templates/clients.html",
                 controller: 'ClientsController'
 
             }).state('clients', {
+                cache: true,
                 url: "/clients",
 
                 templateUrl: "templates/clients.html",

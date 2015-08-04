@@ -1,22 +1,31 @@
 <ion-view view-title="Welcome">
-  <ion-content>
+    <ion-content>
 
 
-    <div id="homesliceleft"></div>
-    <div id="homeslicecentre"></div>
-    <div id="homesliceright"></div>
+        <div id="homesliceleft"></div>
+        <div id="homeslicecentre"></div>
+        <div id="homesliceright"></div>
 
 
-    <div id="homebutkpmg"><a href="#/kpmg/0">HOW CAN<BR/>
-      <strong>KPMG</strong> HELP</a></div>
-    <div id="homeheader"> KPMG CUSTOMER<br/>
-      EXPERIENCE<br/>
-      TOOLKIT<br/>
-    </div>
-    <div id="homebutworld"><a href="#/world/0">HOW HAS THE<BR/>
-      <strong>WORLD</strong> CHANGED</a></div>
-    <div id="homebutclients"><a href="#/clients/0">HOW HAVE OUR<BR/>
-      <strong>CLIENTS</strong> CHANGED</a></div>
+        <div id="homeheader"> KPMG CUSTOMER<br/>
+            EXPERIENCE<br/>
+            TOOLKIT<br/>
+        </div>
 
-  </ion-content>
+        <div ng-controller="HeaderCtrl">
+            <div id="homebutkpmg" ng-click="goKPMG()">
+                <a href="#">HOW CAN<BR/>
+                <strong>KPMG</strong> HELP</a>
+            </div>
+            <div id="homebutworld" ng-click="goWorld()">
+                <a href="#">HOW HAS THE<BR/>
+                <strong>WORLD</strong> CHANGED</a>
+            </div>
+            <div id="homebutclients" ng-click="goClients()">
+                <a href="#">HOW HAVE OUR<BR/>
+                <strong>CLIENTS</strong> CHANGED</a>
+            </div>
+        </div>
+
+    </ion-content>
 </ion-view>

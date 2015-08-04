@@ -6,9 +6,9 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
     $scope.$on('$ionicView.beforeEnter', function(){
         console.log("beforeEnter clientscontroller");
 
-        window.addEventListener('deviceorientation', $scope.parallax , false);
 
-        $(".evolOverlay").hide(300);
+
+        $(".evolOverlay").hide(5);
 
 
 
@@ -45,6 +45,7 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
 
 
     $scope.$on('$ionicView.afterLeave', function () {
+
         console.log("Clients afterLeave");
         window.removeEventListener('deviceorientation', $scope.parallax, true);
     });
@@ -74,7 +75,7 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
                 alt = 1005;
                 break;
             case 4:
-                alt = 776;
+                alt = 800;
                 break;
             case 5:
                 alt = 1013;
@@ -83,7 +84,7 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
                 alt = 1763;
                 break;
             case 7:
-                alt = 1186+80;
+                alt = 1300+80;
                 break;
             default:
                 alt=800;
@@ -102,10 +103,19 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
 
     };
 
+    $scope.$on('$ionicView.afterEnter', function () {
+        move('#clientsconeleft').ease('out').x(0).duration('0.3s').end();
+        move('#clientsconeright').ease('out').x(0).duration('0.3s').end();
+        window.addEventListener('deviceorientation', $scope.parallax , false);
+    });
+
     $scope.evolSrc="img/popups/B1.png"
 
     $scope.$on('$ionicView.beforeEnter', function(){
         console.log("afterenter splashcontroller");
+
+        move('#clientsconeleft').ease('out').x(-272).duration('0').end();
+        move('#clientsconeright').ease('out').x(93).duration('0').end();
 
         if ($stateParams.slideNum) {
             $ionicSlideBoxDelegate.slide( $stateParams.slideNum);
