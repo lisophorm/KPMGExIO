@@ -92,6 +92,13 @@ myApp.controller("WorldController",function($scope, $location, $stateParams,$ion
     });
 
     $scope.$on('$ionicView.beforeEnter', function () {
+
+        move("#videoPOP")
+            .ease('out')
+            .x(1024)
+            .duration('0')
+            .end();
+
         console.log("beforeEnter KPMGcontroller");
 
         move('#worldconeleft').ease('out').x(-272).duration('0').end();
@@ -117,7 +124,32 @@ myApp.controller("WorldController",function($scope, $location, $stateParams,$ion
 
     });
 
+    $scope.playVideo = function(theVid) {
+        console.log("playvideo");
+        var vid = document.getElementById("myVideoPlayer");
+        $scope.videoSrc=theVid;
+        move("#videoPOP")
+            .ease('out')
+            .x(0)
+            .duration('0.5s')
+            .end();
+    }
 
+
+    $scope.videoClose = function() {
+        console.log("closing video");
+        var vid = document.getElementById("myVideoPlayer");
+
+        vid.pause();
+
+        move("#videoPOP")
+            .ease('out')
+            .x(1024)
+            .duration('0.5s')
+            .end();
+
+
+    }
 
 
 

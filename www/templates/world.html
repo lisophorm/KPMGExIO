@@ -25,25 +25,9 @@
                             </div>
                         </div>
 
-
                         <div class="mainMenuWrap">
                             <div class="mainMenu world">
-                                <a href="#" ng-click="callSlide(3)" class="world">Four<br/>Market<br/>Imperatives
-                        <span class="mainMenu desc">
-                            <br/>The four things clients need to address to put their customers first
-                        </span></a>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-
-                    <div class="row">
-
-                        <div class="mainMenuWrap">
-                            <div class="mainMenu world">
-                                <a href="#" ng-click="callSlide(4)" class="world">Client<br/>perspectives<br/>on
+                                <a href="#" ng-click="callSlide(3)" class="world">Client<br/>perspectives<br/>on
                                     customer
                         <span class="mainMenu desc">
                             <br/>Hear from industry experts from around the world
@@ -54,12 +38,30 @@
 
                     </div>
 
+
+                    <div class="row">
+
+
+                        <div class="mainMenuWrap">
+                            <div class="mainMenu world">
+                                <a href="#" ng-click="callSlide(4)" class="world">Four<br/>Market<br/>Imperatives
+                        <span class="mainMenu desc">
+                            <br/>The four things clients need to address to put their customers first
+                        </span></a>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
                 </div>
 
                 </div>
             </ion-slide>
 
-            <ion-slide ng-controller="VideoCtrl">
+            <ion-slide >
                 <div class="holder" style="top: 0px;left: 0px;">
 
 
@@ -94,7 +96,7 @@
 
             </ion-slide>
 
-            <ion-slide ng-controller="VideoCtrl">
+            <ion-slide>
                 <div class="holder  whiteBg" style="top:0px;left: 0px;width: 1024px;height: 800px;">
                     <div class="holder" style="top: 0px;left: 180px;">
                         <img ng-src="img/world/karen_walker.png" width="371" height="562">
@@ -124,10 +126,7 @@
                         <img ng-src="img/world/client_perspective_stripe.png" width="517" height="55">
                     </div>
                 </div>
-                <div class="holder" style="top: 0px;left: 0px;"  ng-click="closeModalVideo()">
-                    <video id="myVideoPlayer" class="centermeVideo" ng-src="{{clipSrc}}" width="1024" height="768"
-                           controls="controls" autoplay></video>
-                </div>
+
             </ion-slide>
 
             <ion-slide>
@@ -138,8 +137,19 @@
 
         </ion-slide-box>
 
+
+
     </ion-content>
 
     <div class="leftCorner" id="worldconeleft"><img ng-src="img/title_world.png" width="124" height="140"></div>
     <div class="rightcone" id="worldconeright"></div>
+
+    <div class="holder videoOverlay" id="videoPOP" style="left: 0px;top:0px;" ng-click="videoClose()">
+
+        <div class="holder" style="left:112px;top:100px;"><video id="myVideoPlayer"  ng-src="{{videoSrc}}" width="800" height="480"
+               controls="controls" autoplay></video></div>
+        <div class="holder" style="left:895px;top:97px;">
+            <img ng-src="img/roundclose.png" width="35" height="35" />
+        </div>
+    </div>
 </ion-view>

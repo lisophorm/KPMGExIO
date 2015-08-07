@@ -196,3 +196,13 @@
 	margin-top: 392px;
 }
 
+.videoOverlay {
+	top:0px;
+	left:0px;
+	background-image: url("../img/blackbg.png");
+	z-index: 100;
+	background-repeat: repeat;
+	width: 1024px;
+	height: 768px;
+
+}
