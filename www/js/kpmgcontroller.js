@@ -1,4 +1,4 @@
-myApp.controller("KPMGController", function ($scope, $location, $stateParams, $ionicSlideBoxDelegate, $ionicModal,$ionicScrollDelegate,$timeout) {
+myApp.controller("KPMGController", function ($scope, $location, $stateParams, $ionicSlideBoxDelegate, $ionicModal,$ionicScrollDelegate,$timeout, $cordovaFileOpener2) {
 
 
     $scope.data = {};
@@ -126,6 +126,21 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
 
     };
 
+    $scope.openPDF = function(theLink) {
+        console.log("opening PDF:"+theLink);
+
+
+        $cordovaFileOpener2.open(
+            './pdf/'+theLink+'.pdf',
+            'application/pdf'
+        ).then(function() {
+                alert('file opened successfully');
+            }, function(errorObj) {
+                alert('Error status: ' + errorObj.status + ' - Error message: ' + errorObj.message);
+            });
+
+    }
+
     $scope.$on('$ionicView.afterEnter', function () {
         move('#kpmgconeleft').ease('out').x(0).duration('0.3s').end();
         move('#kpmgconeright').ease('out').x(0).duration('0.3s').end();
@@ -144,9 +159,6 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
             $ionicSlideBoxDelegate.slide(0);
 
         }
-
     });
-
-
 });
 
