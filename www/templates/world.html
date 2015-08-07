@@ -39,7 +39,6 @@
                     </div>
 
 
-
                     <div class="row">
 
                         <div class="mainMenuWrap">
@@ -61,13 +60,12 @@
             </ion-slide>
 
             <ion-slide ng-controller="VideoCtrl">
-<div class="holder whiteBg">                <div class="holder" style="top:0px;left: 320px;">
-                    <img ng-src="img/world/skyscraper.png" width="648" height="691" class="skyscraper">
+                <div class="holder" style="top: 0px;left: 0px;">
+
+
+                        <img ng-src="img/world/JulioSlide.png" width="1024" height="768">
+
                 </div>
-                <div class="holder" id="playJulio" style="top:255px;left: 369px;" ng-click="playVideo('videos/calibration.mp4')">
-                    <img ng-src="img/world/video_title.png" width="343" height="112">
-                </div>
-</div>
                 <!--div class="holder" style="top:200px;left: 405px;">
                     <img src="../img/world/video%20title%20press.png">
                 </div-->
@@ -81,13 +79,13 @@
                         <img ng-src="img/world/age_of_manuf.png" width="191" height="128" ng-click="goToSlide(0,0)">
                     </div>
                     <div class="holder" style="top: 338px;left: 474px;">
-                        <img ng-src="img/world/age_of_distrib.png" width="173" height="128"  ng-click="goToSlide(1,0)">
+                        <img ng-src="img/world/age_of_distrib.png" width="173" height="128" ng-click="goToSlide(1,0)">
                     </div>
                     <div class="holder" style="top: 338px;left: 647px;">
-                        <img ng-src="img/world/age_of_info.png" width="176" height="128"  ng-click="goToSlide(2,0)">
+                        <img ng-src="img/world/age_of_info.png" width="176" height="128" ng-click="goToSlide(2,0)">
                     </div>
                     <div class="holder" style="top: 338px;left: 823px;">
-                        <img ng-src="img/world/age_of_customer.png" width="180" height="128"  ng-click="goToSlide(3,0)">
+                        <img ng-src="img/world/age_of_customer.png" width="180" height="128" ng-click="goToSlide(3,0)">
                     </div>
                     <div class="holder" style="top: 518px;left: 286px;">
                         <img ng-src="img/world/quote.png" width="614" height="266">
@@ -96,35 +94,40 @@
 
             </ion-slide>
 
-            <ion-slide ng-controller="VideoCtrl" >
-                <div class="holder"  style="top:0px;left: 0px;width: 1024px;height: 800px;background-color: #080808;">
-                    <div class="holder" style="top:0px;left: 95px;">
-                    <img ng-src="img/world/liberty.png" width="410" height="498">
+            <ion-slide ng-controller="VideoCtrl">
+                <div class="holder  whiteBg" style="top:0px;left: 0px;width: 1024px;height: 800px;">
+                    <div class="holder" style="top: 0px;left: 180px;">
+                        <img ng-src="img/world/karen_walker.png" width="371" height="562">
+                    </div>
+                    <div class="holder" style="top: 0px;left: 420px;">
+                        <img ng-src="img/world/mike_regnier.png" width="371" height="562">
+                    </div>
+                    <div class="holder" style="top: 0px;left: 661px;">
+                        <img ng-src="img/world/darren_whitelaw.png" width="371" height="562">
+                    </div>
+
+                    <div class="holder" style="top: 523px;left: 133px;">
+                        <img ng-src="img/world/video_01.png"  width="288" height="246"
+                             ng-click="playVideo('videos/first_direct.mp4')">
+                    </div>
+
+
+                    <div class="holder" style="top: 523px;left: 373px;">
+                        <img ng-src="img/world/video_02.png"  width="288" height="246"
+                             ng-click="playVideo('videos/ybs.mp4')">
+                    </div>
+                    <div class="holder" style="top: 523px;left: 613px;">
+                        <img ng-src="img/world/video_03.png" width="288" height="246"
+                             ng-click="playVideo('videos/mclaren.mp4')">
+                    </div>
+                    <div class="holder" style="top: 361px;left: 0px;">
+                        <img ng-src="img/world/client_perspective_stripe.png" width="517" height="55">
+                    </div>
                 </div>
-                <div class="holder" style="top:0px;left: 333px;">
-                    <img ng-src="img/world/globe.png" width="364" height="498">
+                <div class="holder" style="top: 0px;left: 0px;"  ng-click="closeModalVideo()">
+                    <video id="myVideoPlayer" class="centermeVideo" ng-src="{{clipSrc}}" width="1024" height="768"
+                           controls="controls" autoplay></video>
                 </div>
-                <div class="holder" style="top:0px;left: 544px;">
-                    <img ng-src="img/world/porsche.png" width="364" height="498">
-                </div>
-                <div class="holder" style="top:0px;left: 755px;">
-                    <img ng-src="img/world/sydney.png" width="269" height="498">
-                </div>
-                <div class="holder" style="top:361px;left: 0px;">
-                    <img ng-src="img/world/client_perspective_stripe.png" width="517" height="55">
-                </div>
-                <div class="holder" style="top:464px;left: 67px;">
-                    <img ng-src="img/world/video_01.png" width="267" height="216" ng-click="playVideo('videos/big_buck_bunny.mp4')">
-                </div>
-                <div class="holder" style="top:464px;left: 279px;">
-                    <img ng-src="img/world/video_02.png" width="270" height="216" ng-click="playVideo('videos/small.mp4')">
-                </div>
-                <div class="holder" style="top:464px;left: 490px;">
-                    <img ng-src="img/world/video_03.png" width="270" height="216" ng-click="playVideo('videos/big_buck_bunny.mp4')">
-                </div>
-                <div class="holder" style="top:464px;left: 701px;">
-                    <img ng-src="img/world/video_04.png" width="270" height="216" ng-click="playVideo('videos/small.mp4')">
-                </div></div>
             </ion-slide>
 
             <ion-slide>
@@ -137,6 +140,6 @@
 
     </ion-content>
 
-    <div class="leftCorner" id="worldconeleft"><img ng-src="img/title_world.png" width="124" height="140" ></div>
+    <div class="leftCorner" id="worldconeleft"><img ng-src="img/title_world.png" width="124" height="140"></div>
     <div class="rightcone" id="worldconeright"></div>
 </ion-view>

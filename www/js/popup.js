@@ -211,7 +211,7 @@ myApp.controller('SlideSwipeCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDele
        if($scope.currentSlideGroup!=groupIndex) {
            angular.copy($scope.cImages[groupIndex], $scope.aImages);
         }
-        $scope.modal.show();
+      /*  $scope.modal.show();
         $ionicSlideBoxDelegate.$getByHandle('PopupSwipe').update();
         $ionicSlideBoxDelegate.$getByHandle('PopupSwipe').slide(0);
         $scope.modal.hide();
@@ -226,7 +226,38 @@ myApp.controller('SlideSwipeCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDele
             console.log("TIMEOUT MADUNNAPUTTANA");
             $scope.modal.show();
         },300)
+       $scope.modal.show();
+*/
 
+        $scope.modal.show();
+        $(".modal-backdrop").css("opacity",0);
+        try {
+            $ionicSlideBoxDelegate.$getByHandle('PopupSwipe').slide(0);
+        }catch (e) {
+            console.log("error swipe generic");
+        }
+
+        setTimeout(function() {
+            try {
+                $ionicSlideBoxDelegate.$getByHandle('PopupSwipe').slide(index);
+            } catch (e) {
+                console.log("error swipe TIMER ppouop");
+            }
+
+            //$scope.modal.show();
+        },100);
+
+        setTimeout(function() {
+
+            move(".modal-backdrop")
+                .set('opacity','1')
+                .duration('0.3s')
+                .delay("0.3")
+                .end();
+
+           // $(".modal-backdrop").css("opacity",1);
+
+        },300);
 
     };
 

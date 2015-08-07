@@ -49,7 +49,7 @@ myApp.controller("WorldController",function($scope, $location, $stateParams,$ion
         switch (index) {
 
             case 1:
-                alt = 693;
+                alt = 768;
                 break;
             case 2:
                 alt = 571+265;
