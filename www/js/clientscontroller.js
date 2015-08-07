@@ -92,6 +92,8 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
 
         }
 
+
+
         $(".slider").height(alt);
         $(".scroll").height(alt);
         $(".slider-slides").height(alt);
