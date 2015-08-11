@@ -4,9 +4,27 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic','ionic.service.core', 'ui.router','ngCordova','starter.controllers','ngRetina','ngVideo','ionic.ion.imageCacheFactory'])
+angular.module('starter', ['ionic','ionic.service.core','ngAnimate', 'ui.router','ngCordova','starter.controllers','ionic.ion.imageCacheFactory'])
 
-    .run(function ($ionicPlatform) {
+    .run(function ($ionicPlatform,$templateCache,$http) {
+
+       /* var templates = [
+            "templates/kpmg.html",
+            "templates/world.html",
+            "templates/clients.html",
+        ];
+
+        for(i=0;i<templates.length;i++){
+            var template = templates[i];
+            if ($templateCache.get(template)){
+                return; //prevent the prefetching if the template is already in the cache
+            }
+            $http.get(template).success(function (t) {
+                console.log("TEMPLATE PREFETCHED");
+                $templateCache.put(template, t);
+            });
+        }*/
+
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -108,4 +126,6 @@ angular.module('ionic.ion.imageCacheFactory', [])
                 return $q.all(promises);
             }
         }
-    }]);
+    }]).config(function($ionicConfigProvider) {
+        $ionicConfigProvider.views.maxCache(10);
+});

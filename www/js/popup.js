@@ -230,7 +230,7 @@ myApp.controller('SlideSwipeCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDele
 */
 
         $scope.modal.show();
-        $(".modal-backdrop").css("opacity",0);
+        //$(".modal-backdrop").css("opacity",0);
         try {
             $ionicSlideBoxDelegate.$getByHandle('PopupSwipe').slide(0);
         }catch (e) {
@@ -249,15 +249,15 @@ myApp.controller('SlideSwipeCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDele
 
         setTimeout(function() {
 
-            move(".modal-backdrop")
-                .set('opacity','1')
-                .duration('0.3s')
-                .delay("0.3")
-                .end();
+           // move(".modal-backdrop")
+           //     .set('opacity','1')
+            //    .duration('0.3s')
+            //    .delay("0.3")
+            //    .end();
 
            // $(".modal-backdrop").css("opacity",1);
 
-        },300);
+        },500);
 
     };
 

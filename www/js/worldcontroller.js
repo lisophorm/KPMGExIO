@@ -86,12 +86,24 @@ myApp.controller("WorldController",function($scope, $location, $stateParams,$ion
     });
 
     $scope.$on('$ionicView.afterEnter', function () {
-        move('#worldconeleft').ease('out').x(0).duration('0.3s').end();
-        move('#worldconeright').ease('out').x(0).duration('0.3s').end();
+        move('#worldconeleft').delay("0.6s").ease('out').x(0).duration('0.3s').end();
+        move('#worldconeright').delay("0.6s").ease('out').x(0).duration('0.3s').end();
         window.addEventListener('deviceorientation', $scope.parallax , false);
+
+        move("#worldmenu")
+            .set('opacity','1')
+            .delay('0.3s')
+            .duration('0.3s')
+            .end();
+
     });
 
     $scope.$on('$ionicView.beforeEnter', function () {
+
+        move("#worldmenu")
+            .set('opacity','0')
+            .duration('0s')
+            .end();
 
         move("#videoPOP")
             .ease('out')
@@ -101,13 +113,13 @@ myApp.controller("WorldController",function($scope, $location, $stateParams,$ion
 
         console.log("beforeEnter KPMGcontroller");
 
-        move('#worldconeleft').ease('out').x(-272).duration('0').end();
-        move('#worldconeright').ease('out').x(93).duration('0').end();
+        move('#worldconeleft').x(-272).duration('0').end();
+        move('#worldconeright').x(93).duration('0').end();
 
 
 
         //$(".slider-pager-page.active").css("stroke","#9f0 !important;");
-        if ($stateParams.slideNum) {
+       /* if ($stateParams.slideNum) {
             $ionicSlideBoxDelegate.slide( $stateParams.slideNum);
 
             // $ionicSlideBoxDelegate.slide($stateParams.slideNum)
@@ -115,7 +127,7 @@ myApp.controller("WorldController",function($scope, $location, $stateParams,$ion
         } else {
             $ionicSlideBoxDelegate.slide(0);
 
-        }
+        }*/
 
        /* move("#KPMGheader")
             .set('height', '89px')

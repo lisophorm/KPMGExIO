@@ -4,9 +4,9 @@
 
 
 
-      <ion-slide-box active-slide="myActiveSlide" on-slide-changed="slideChangedKPMG(index)" delegate-handle="KPMGSwipeHandle">
+      <ion-slide-box active-slide="myActiveSlide" on-slide-changed="slideChangedKPMG(index)" on delegate-handle="KPMGSwipeHandle">
         <ion-slide>
-          <div class="box">
+          <div class="box" id="kpmgmenu">
             <div class="row">
               <div class="mainMenuWrap">
                 <div class="mainMenu kpmg">
@@ -100,8 +100,14 @@
           </div>
         </ion-slide>
           <ion-slide>
-              <div class="holder" style="top: 80px;left: 289px;">
-                  <img ng-src="img/kpmg/kpmg_2.png" width="582" height="406">
+              <div class="holder" style="width: 560px;height: 75px;line-height:120%;top: 80px;left: 290px;font-family: UniversforKPMG;text-transform:uppercase;color: #009fda;font-size: 24px;font-weight: 300;text-align: left;">
+                  So...what can you do to propel your clients into the customer experience stratosphere?
+              </div>
+              <div class="holder" ng-click="callSlide(3)" style="top: 255px;left: 289px;">
+                  <img ng-src="img/kpmg/3_2_up_link.png" width="582" height="108">
+              </div>
+              <div class="holder" ng-click="callSlide(5)" style="top: 422px;left: 289px;">
+                  <img ng-src="img/kpmg/3_2_down_link.png" width="555" height="64">
               </div>
           </ion-slide>
 
@@ -150,12 +156,13 @@
               </div>
           </ion-slide>
           <ion-slide >
-              <div class="holder" style="top: 81px;left: 283px;">
-                  <img ng-src="img/kpmg/kpmg_6.png" width="673" height="468">
+              <div class="holder" style="top: 81px;left: 174px;">
+                  <img ng-src="img/kpmg/kpmg_6.png" width="776" height="612">
+
               </div>
-              <div class="holder" style="width: 665px;height: 361px;;top: 485px;left: 291px;" ng-click="">
-                  <ion-scroll zooming="true" direction="xy" style="width: 665px;height: 361px">
-                      <div style="width: 4095px; height: 2008px; background: url('img/journey_map.jpg') repeat"></div>
+              <div class="holder" style="width: 665px;height: 361px;top: 517px;left: 291px;" ng-click="">
+                  <ion-scroll  min-zoom="0.3" zooming="true" direction="xy" style="width: 665px;height: 361px">
+                      <div style="width: 2000px;height:981px; background: url('img/journey_map.jpg');background-repeat: no-repeat;"></div>
                   </ion-scroll>
               </div>
           </ion-slide>
@@ -184,6 +191,6 @@
   </ion-content>
     <ion-slide-pager></ion-slide-pager>
     <div class="rightcone kpmg" id="kpmgconeright" class="kpmg"></div>
-    <div class="leftCorner kpmg" id="kpmgconeleft"><img ng-src="img/title_kpmg.png" width="131" height="111" >
+    <div class="leftCorner kpmg" id="kpmgconeleft"><a href="#/app"><img ng-src="img/title_kpmg.png" width="131" height="111" ></a>
     </div>
 </ion-view>

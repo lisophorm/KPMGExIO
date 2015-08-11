@@ -48,6 +48,12 @@
     src: url('../fonts/UniversforKPMG-Light.ttf') format('truetype') /* Safari, Android, iOS */
 }
 @font-face {
+    font-family: "UniversforKPMG";
+    font-weight: 300;
+    font-style:normal;
+    src: url('../fonts/UniversforKPMG-Light.ttf') format('truetype') /* Safari, Android, iOS */
+}
+@font-face {
     font-family: "UniversforKPMG LightObl";
 	font-style:normal;
     src: url('../fonts/UniversforKPMG-LightObl.ttf') format('truetype') /* Safari, Android, iOS */

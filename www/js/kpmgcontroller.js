@@ -2,15 +2,12 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
 
 
     $scope.data = {};
-    $scope.data.currSlide = $ionicSlideBoxDelegate.currentIndex();
-    console.log('Current Slide = ' + $scope.data.currSlide);
+    //$scope.data.currSlide = $ionicSlideBoxDelegate.currentIndex();
+    //console.log('Current Slide = ' + $scope.data.currSlide);
 
-    $scope.$on('slideBox.slideChanged', function (event, index) {
-        console.debug('Slide box has been changed, current index is ' + index);
-    });
 
-    $scope.$on('$ionicView.beforeEnter', function () {
-        console.log("beforeEnter KPMGcontroller");
+//    $scope.$on('$ionicView.beforeEnter', function () {
+     //   console.log("beforeEnter KPMGcontroller");
 
             //$(".slider-pager-page").css("opacity",0.3);
 
@@ -19,7 +16,7 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
             .duration('0.5s')
             .end();  */
 
-    });
+ //   });
 
     $scope.parallax=function(eventData) {
 
@@ -60,8 +57,29 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
 
     console.log("beforeEnter");
 
-        move('#kpmgconeleft').ease('out').x(-272).duration('0').end();
-        move('#kpmgconeright').ease('out').x(93).duration('0').end();
+        move("#kpmgmenu")
+            .set('opacity','0')
+            .duration('0s')
+            .end();
+
+        move(".KPMGheader")
+            .set('height','89px')
+            .duration('0.3s')
+            .delay('0.4s')
+            .end();
+
+  /*      if ($stateParams.slideNum) {
+            $ionicSlideBoxDelegate.slide($stateParams.slideNum);
+
+            // $ionicSlideBoxDelegate.slide($stateParams.slideNum)
+
+        } else {
+            $ionicSlideBoxDelegate.slide(0);
+
+        }*/
+
+        move('#kpmgconeleft').x(-272).duration('0').end();
+        move('#kpmgconeright').x(93).duration('0').end();
 
             var position = document.getElementById("position");
 
@@ -98,7 +116,7 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
                 alt = 1445;
                 break;
             case 5:
-                alt = 990;
+                alt = 1000;
                 break;
             case 6:
                 alt = 1751;
@@ -110,7 +128,7 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
                 alt = 850;
                 break;
             default:
-                alt=800;
+                alt=900;
                 break;
 
         }
@@ -127,25 +145,24 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
     };
 
     $scope.$on('$ionicView.afterEnter', function () {
-        move('#kpmgconeleft').ease('out').x(0).duration('0.3s').end();
-        move('#kpmgconeright').ease('out').x(0).duration('0.3s').end();
-        window.addEventListener('deviceorientation', $scope.parallax , false);
-    });
 
-    $scope.$on('$ionicView.beforeEnter', function () {
-        console.log("beforeEnter splashcontroller KPMG");
+        move("#kpmgmenu")
+            .set('opacity','1')
+            .delay('0.3s')
+            .duration('0.3s')
+            .end();
 
-        if ($stateParams.slideNum) {
-            $ionicSlideBoxDelegate.slide($stateParams.slideNum);
+        setTimeout(function() {
+            move('#kpmgconeleft').delay("0.6s").ease('out').x(0).duration('0.3s').end();
+            move('#kpmgconeright').delay("0.6s").ease('out').x(0).duration('0.3s').end();
 
-            // $ionicSlideBoxDelegate.slide($stateParams.slideNum)
+            window.addEventListener('deviceorientation', $scope.parallax , false);
+        },300);
 
-        } else {
-            $ionicSlideBoxDelegate.slide(0);
-
-        }
 
     });
+
+
 
 
 });

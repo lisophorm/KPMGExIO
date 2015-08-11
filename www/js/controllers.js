@@ -128,11 +128,6 @@ var myApp=angular.module('starter.controllers', [])
                 .duration('0.3s')
                 .end();
 
-        });
-
-        $scope.$on('$ionicView.afterLeave', function(){
-            console.log("afterLeave splashcontroller");
-
             move("#homebutworld")
                 .set('opacity','0')
                 .duration('0.5s')
@@ -184,7 +179,11 @@ var myApp=angular.module('starter.controllers', [])
                 "img/title_world@2x.png",
             ]).then(function(){
                 $state.transitionTo('world', {slideNum:0});
-                $ionicSlideBoxDelegate.$getByHandle('WorldSwipe').slide(0);
+                try {
+                    $ionicSlideBoxDelegate.$getByHandle('WorldSwipe').slide(0);
+                } catch(e) {
+                    console.log("yet to initialize");
+                }
                 console.log("Images done loading!");
             },function(failed){
                 console.log("An image filed: "+failed);
@@ -204,7 +203,11 @@ var myApp=angular.module('starter.controllers', [])
                 "img/title_clients@2x.png",
             ]).then(function(){
                 $state.transitionTo('clients2', {slideNum:0});
-                $ionicSlideBoxDelegate.$getByHandle('ClientSwipeDelegate').slide(0);
+                try {
+                    $ionicSlideBoxDelegate.$getByHandle('ClientSwipeDelegate').slide(0);
+                } catch(e) {
+                    console.log("yet to initialize");
+                }
                 console.log("Images done loading!");
             },function(failed){
                 console.log("An image filed: "+failed);
@@ -225,7 +228,11 @@ var myApp=angular.module('starter.controllers', [])
             ]).then(function(){
                 console.log("Images done loading!");
                 $state.transitionTo('kpmg2', {slideNum:0});
-                $ionicSlideBoxDelegate.$getByHandle('KPMGSwipeHandle').slide(0);
+                try {
+                    $ionicSlideBoxDelegate.$getByHandle('KPMGSwipeHandle').slide(0);
+                } catch(e) {
+                    console.log("yet to initialize");
+                }
             },function(failed){
 
                 console.log("An image filed: "+failed);

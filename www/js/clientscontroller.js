@@ -1,7 +1,5 @@
 myApp.controller("ClientsController",function($scope, $location, $stateParams,$ionicSlideBoxDelegate,$ionicModal,$ionicScrollDelegate) {
-    $scope.$on('slideBox.slideChanged', function (event, index) {
-        console.debug('Slide box has been changed, current index is ' + index);
-    });
+
 
     $scope.$on('$ionicView.beforeEnter', function(){
         console.log("beforeEnter clientscontroller");
@@ -106,8 +104,15 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
     };
 
     $scope.$on('$ionicView.afterEnter', function () {
-        move('#clientsconeleft').ease('out').x(0).duration('0.3s').end();
-        move('#clientsconeright').ease('out').x(0).duration('0.3s').end();
+
+        move("#clientsmenu")
+            .set('opacity','1')
+            .delay('0.3s')
+            .duration('0.3s')
+            .end();
+
+        move('#clientsconeleft').delay("0.6s").ease('out').x(0).duration('0.3s').end();
+        move('#clientsconeright').delay("0.6s").ease('out').x(0).duration('0.3s').end();
         window.addEventListener('deviceorientation', $scope.parallax , false);
     });
 
@@ -116,8 +121,13 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
     $scope.$on('$ionicView.beforeEnter', function(){
         console.log("afterenter splashcontroller");
 
-        move('#clientsconeleft').ease('out').x(-272).duration('0').end();
-        move('#clientsconeright').ease('out').x(93).duration('0').end();
+        move("#clientsmenu")
+            .set('opacity','0')
+            .duration('0s')
+            .end();
+
+        move('#clientsconeleft').x(-272).duration('0').end();
+        move('#clientsconeright').x(93).duration('0').end();
 
         if ($stateParams.slideNum) {
             $ionicSlideBoxDelegate.slide( $stateParams.slideNum);
