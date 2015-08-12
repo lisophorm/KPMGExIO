@@ -66,10 +66,13 @@ myApp.controller("WorldController",function($scope, $location, $stateParams,$ion
 
         }
 
+        //angular.element(document.getElementsByClassName("slider")).height(alt);
+        //angular.element(document.getElementsByClassName("scroll")).height(alt);
+        //angular.element(document.getElementsByClassName("slider-slides")).height(alt);
         $(".slider").height(alt);
         $(".scroll").height(alt);
         $(".slider-slides").height(alt);
-        console.log("WORLD slide changed!" + index + " height:" + $(".slider").height());
+        //console.log("WORLD slide changed!" + index + " height:" + angular.element(document.getElementsByClassName("slider")).height());
         /*$timeout( function() {
 
          $ionicScrollDelegate.resize();
@@ -116,7 +119,8 @@ myApp.controller("WorldController",function($scope, $location, $stateParams,$ion
         move('#worldconeleft').x(-272).duration('0').end();
         move('#worldconeright').x(93).duration('0').end();
 
-
+       // $('#worldconeleft').css('left','-272px');
+       // $('#worldconeright').css('left','93px');
 
         //$(".slider-pager-page.active").css("stroke","#9f0 !important;");
        /* if ($stateParams.slideNum) {

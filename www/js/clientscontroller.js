@@ -64,25 +64,22 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
         switch (index) {
 
             case 1:
-                alt = 1024;
+                alt = 941+80;
                 break;
             case 2:
-                alt = 681;
+                alt = 481+100;
                 break;
             case 3:
-                alt = 1005;
+                alt = 700;
                 break;
             case 4:
-                alt = 800;
-                break;
-            case 5:
                 alt = 1013;
                 break;
-            case 6:
-                alt = 1763;
+            case 5:
+                alt = 1695;
                 break;
-            case 7:
-                alt = 1300+80;
+            case 6:
+                alt = 1186+100;
                 break;
             default:
                 alt=800;

@@ -43,6 +43,7 @@ var myApp=angular.module('starter.controllers', [])
         $scope.$on('$ionicView.beforeEnter', function(){
             console.log("beforeEnter splashcontroller SPLASH");
 
+            $("#splash").show();
 
             move(".KPMGheader")
                 .set('height','0px')
@@ -110,37 +111,41 @@ var myApp=angular.module('starter.controllers', [])
 
         });
 
+        $scope.$on('$ionicView.afterLeave', function(){
+            $("#splash").hide();
+        });
+
         $scope.$on('$ionicView.beforeLeave', function(){
             console.log("afterLeave splashcontroller");
 
             move("#homesliceright")
                 .set('opacity','0')
-                .duration('0.1s')
+                .duration('0s')
                 .end();
 
             move("#homesliceleft")
                 .set('opacity','0')
-                .duration('0.2s')
+                .duration('0s')
                 .end();
 
             move("#homeslicecentre")
                 .set('opacity','0')
-                .duration('0.3s')
+                .duration('0s')
                 .end();
 
             move("#homebutworld")
                 .set('opacity','0')
-                .duration('0.5s')
+                .duration('0s')
                 .end();
 
             move("#homebutclients")
                 .set('opacity','0')
-                .duration('0.5s')
+                .duration('0s')
                 .end();
 
             move("#homebutkpmg")
                 .set('opacity','0')
-                .duration('0.5s')
+                .duration('0s')
                 .end();
 
 
@@ -168,9 +173,10 @@ var myApp=angular.module('starter.controllers', [])
                 .end(); */
         });
 
-    }).controller('HeaderCtrl', function($scope, $ionicModal, $timeout,$state,$ImageCacheFactory,$ionicSlideBoxDelegate) {
+    }).controller('HeaderCtrl', function($scope, $ionicModal, $timeout,$state,$ImageCacheFactory,$ionicSlideBoxDelegate,$ionicHistory) {
 
         $scope.goWorld = function() {
+            $ionicHistory.clearHistory();
             console.log("CRODINOOO");
 
             $ImageCacheFactory.Cache([
@@ -195,6 +201,7 @@ var myApp=angular.module('starter.controllers', [])
         }
 
         $scope.goClients = function() {
+            $ionicHistory.clearHistory();
             console.log("CRODINOOOclients");
 
             $ImageCacheFactory.Cache([
@@ -219,6 +226,7 @@ var myApp=angular.module('starter.controllers', [])
         }
 
         $scope.goKPMG = function() {
+            $ionicHistory.clearHistory();
             console.log("CRODINOOOkpmg");
 
             $ImageCacheFactory.Cache([

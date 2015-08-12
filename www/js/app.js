@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic','ionic.service.core','ngAnimate', 'ui.router','ngCordova','starter.controllers','ionic.ion.imageCacheFactory'])
+angular.module('starter', ['ionic','ionic.service.core','ngAnimate', 'ngRetina','ui.router','ngCordova','starter.controllers','ionic.ion.imageCacheFactory'])
 
     .run(function ($ionicPlatform,$templateCache,$http) {
 
@@ -127,5 +127,5 @@ angular.module('ionic.ion.imageCacheFactory', [])
             }
         }
     }]).config(function($ionicConfigProvider) {
-        $ionicConfigProvider.views.maxCache(10);
+
 });

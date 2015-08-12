@@ -57,10 +57,12 @@ myApp.controller('VideoCtrl',
         }
     });
 
-myApp.controller('SlideSwipeCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate', function ($scope, $ionicModal, $ionicSlideBoxDelegate,SlideBoxDelegate,$ionicPlatform) {
+myApp.controller('SlideSwipeCtrl',  function ($scope, $ionicModal, $ionicPlatform,$timeout) {
 
 
     $scope.currentSlideGroup=99;
+
+    $scope.currentSwipe=0;
 
     $scope.cImages=Array();
     $scope.cImages[0] = [{
@@ -156,23 +158,26 @@ myApp.controller('SlideSwipeCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDele
         'height' : 411
     }];
 
-    $ionicModal.fromTemplateUrl('image-modal2.html', {
+    $ionicModal.fromTemplateUrl('image-modal.html', {
         scope: $scope,
         animation: 'slide-in-up'
     }).then(function(modal) {
         $scope.modal = modal;
+
+        $scope.imageSrc=$scope.aImages[0].src;
+
     });
 
 
 
 
     $scope.openModal = function() {
-        $ionicSlideBoxDelegate.slide(0);
-        $scope.modal.show();
+       $scope.modal.show();
     };
 
     $scope.closeModal = function() {
         $scope.modal.hide();
+        //$scope.modal.remove();
     };
 
     // Cleanup the modal when we're done with it!
@@ -191,26 +196,123 @@ myApp.controller('SlideSwipeCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDele
         console.log('Modal is shown2!');
     });
 
-    // Call this functions if you need to manually control the slides
-    $scope.next = function() {
-        $ionicSlideBoxDelegate.next();
-    };
 
-    $scope.previous = function() {
-        $ionicSlideBoxDelegate.previous();
-    };
+    $scope.swipeLeft=function() {
+        console.log("swipeleft");
+        if($scope.currentSwipe<$scope.aImages.length-1) {
+            var destLeft= ($(window).width()-$scope.aImages[$scope.currentSwipe].width)*-1;
+            var destRight=($(window).width()+$scope.aImages[$scope.currentSwipe].width);
 
-    $scope.updateSlider = function () {
-        console.log("UPPDATE SLIDERSLIDEE");
-        $ionicSlideBoxDelegate.$getByHandle('PopupSwipe').update(); //or just return the function
-    };
+            move("#nextslide")
+                .x(destRight)
+                .duration('0s')
+                .end();
+            //$scope.imageSrc=$scope.aImages[$scope.currentSwipe].src+ '?' + new Date().getTime();
 
+            $scope.currentSwipe++;
+            $scope.nextImageSrc=$scope.aImages[$scope.currentSwipe].src+ '?' + new Date().getTime();
+
+            //$scope.nextImageSrc=$scope.aImages[$scope.currentSwipe].src;
+            console.log($scope.aImages[$scope.currentSwipe].src);
+
+
+
+
+           move("#nextslide")
+                .x(0)
+                .duration('0.5s')
+                .end();
+
+           move("#currentslide")
+                .ease('out')
+                .x(destLeft)
+                .duration('0.5s')
+                .end(function() {
+                   $timeout(function () {
+
+                       move("#currentslide")
+                           .ease('out')
+                           .x(0)
+                           .duration('0s')
+                           .end();
+                       $scope.imageSrc=$scope.aImages[$scope.currentSwipe].src+ '?' + new Date().getTime();
+                       $scope.$apply();
+                   });
+
+                    $scope.slidewidth=$scope.aImages[$scope.currentSwipe].width;
+                    $scope.slideheight=$scope.aImages[$scope.currentSwipe].height;
+                    console.log($scope.aImages[$scope.currentSwipe].src);
+
+                });
+
+        }
+        }
+    $scope.swipeRight=function() {
+        console.log("swiperight");
+        if($scope.currentSwipe>0) {
+            var destLeft= ($(window).width()-($scope.aImages[$scope.currentSwipe].width))*-1;
+            var destRight=($(window).width()+$scope.aImages[$scope.currentSwipe].width);
+
+            move("#nextslide")
+                .x(destLeft)
+                .duration('0s')
+                .end();
+            //$scope.imageSrc=$scope.aImages[$scope.currentSwipe].src+ '?' + new Date().getTime();
+
+            $scope.currentSwipe--;
+            $scope.nextImageSrc=$scope.aImages[$scope.currentSwipe].src+ '?' + new Date().getTime();
+
+            //$scope.nextImageSrc=$scope.aImages[$scope.currentSwipe].src;
+            console.log($scope.aImages[$scope.currentSwipe].src);
+
+
+
+
+            move("#nextslide")
+                .x(0)
+                .duration('0.5s')
+                .end();
+
+            move("#currentslide")
+                .ease('out')
+                .x(destRight)
+                .duration('0.5s')
+                .end(function() {
+                    $timeout(function () {
+
+                        move("#currentslide")
+                            .ease('out')
+                            .x(0)
+                            .duration('0s')
+                            .end(function() {
+                                $scope.imageSrc=$scope.aImages[$scope.currentSwipe].src+ '?' + new Date().getTime();
+                                $scope.$apply();
+                            });
+                    });
+
+                    $scope.slidewidth=$scope.aImages[$scope.currentSwipe].width;
+                    $scope.slideheight=$scope.aImages[$scope.currentSwipe].height;
+                    console.log($scope.aImages[$scope.currentSwipe].src);
+
+                });
+
+
+        }
+    }
 
 
     $scope.goToSlide = function(index,groupIndex) {
        if($scope.currentSlideGroup!=groupIndex) {
            angular.copy($scope.cImages[groupIndex], $scope.aImages);
         }
+
+        $scope.imageSrc=$scope.aImages[index].src;
+        $scope.nextImageSrc=$scope.aImages[index].src;
+        $scope.slidewidth=$scope.aImages[index].width;
+        $scope.slideheight=$scope.aImages[index].height;
+
+        $scope.currentSwipe=index;
+
       /*  $scope.modal.show();
         $ionicSlideBoxDelegate.$getByHandle('PopupSwipe').update();
         $ionicSlideBoxDelegate.$getByHandle('PopupSwipe').slide(0);
@@ -231,43 +333,13 @@ myApp.controller('SlideSwipeCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDele
 
         $scope.modal.show();
         //$(".modal-backdrop").css("opacity",0);
-        try {
-            $ionicSlideBoxDelegate.$getByHandle('PopupSwipe').slide(0);
-        }catch (e) {
-            console.log("error swipe generic");
-        }
 
-        setTimeout(function() {
-            try {
-                $ionicSlideBoxDelegate.$getByHandle('PopupSwipe').slide(index);
-            } catch (e) {
-                console.log("error swipe TIMER ppouop");
-            }
-
-            //$scope.modal.show();
-        },100);
-
-        setTimeout(function() {
-
-           // move(".modal-backdrop")
-           //     .set('opacity','1')
-            //    .duration('0.3s')
-            //    .delay("0.3")
-            //    .end();
-
-           // $(".modal-backdrop").css("opacity",1);
-
-        },500);
 
     };
 
     // Called each time the slide changes
-    $scope.slideChanged = function(index) {
-        console.log("modal2 slidechanged swipe"+ index);
-        $scope.slideIndex = index;
-    };
-}
-]);
+
+});
 
 myApp.controller('EvolutionSwipeCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate', function ($scope, $ionicModal, $ionicSlideBoxDelegate,$ionicScrollDelegate) {
     console.log("evolution modal");

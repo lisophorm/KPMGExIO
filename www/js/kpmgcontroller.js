@@ -103,7 +103,7 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
         switch (index) {
 
             case 1:
-                alt = 406+82;
+                alt = 406+100;
                 break;
             case 2:
                 alt = 1184;
@@ -125,8 +125,12 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
                 alt = 850+83;
                 break;
             case 8:
-                alt = 850;
+                alt = 691+100;
                 break;
+            case 9:
+                alt=636+100;
+            case 10:
+                alt=531+100;
             default:
                 alt=900;
                 break;
