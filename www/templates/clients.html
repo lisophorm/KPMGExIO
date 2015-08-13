@@ -92,7 +92,7 @@
                 <div class="holder" style="top: 351px;left: 0px;">
                     <img ng-src="img/clients/slide_clients_2.png" width="1024" height="674">
                 </div>
-                <div class="holder" id="evoHotSpots" style="top:0px;left:0px;" >
+                <div class="holder" id="evoHotSpots" style="top:0px;left:0px;" ng-controller="EvoSwipeCtrl" >
                     <div class="my_hotspot" style="width: 82px;height: 76px;top: 560px;left: 409px;"
                          ng-click="evolutionOpenPopUp('G1')"></div>
                     <div class="my_hotspot" style="width: 82px;height: 76px;top: 560px;left: 519px;"
@@ -196,7 +196,19 @@
 
 
     </ion-content>
+
+
+
     <div class="rightcone clients" id="clientsconeright"></div>
     <div class="leftCorner clients" id="clientsconeleft"><img ng-src="img/title_clients.png" width="126" height="140">
     </div>
+    <div class="evolOverlay" ng-click="evoCloseModal()"  ng-controller="EvoSwipeCtrl">
+
+        <img  ng-src="{{nextImageSrc}}" id="evonextslide" on-swipe-left="swipeLeft()" on-swipe-right="swipeRight()" width="{{slidewidth}}" height="{{slideheight}}" class=""/>
+
+        <img ng-src="{{imageSrc}}" id="evocurrentslide" on-swipe-left="swipeLeft()" on-swipe-right="swipeRight()" width="{{slidewidth}}" height="{{slideheight}}"  class=""/>
+
+    </div>
+
+
 </ion-view>

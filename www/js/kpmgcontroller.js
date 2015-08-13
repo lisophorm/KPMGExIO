@@ -49,11 +49,17 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
 
     $scope.$on('$ionicView.afterLeave', function () {
 
+        TweenLite.to(document.getElementById('kpmgconeleft'), 0, {opacity:0});
+        TweenLite.to(document.getElementById('kpmgconeright'), 0, {opacity:0});
+
         console.log("KPMG afterLeave");
         window.removeEventListener('deviceorientation', $scope.parallax, true);
     });
 
     $scope.$on('$ionicView.beforeEnter', function () {
+
+        TweenLite.to(document.getElementById('kpmgconeleft'), 0, {opacity:1});
+        TweenLite.to(document.getElementById('kpmgconeright'), 0, {opacity:1});
 
     console.log("beforeEnter");
 

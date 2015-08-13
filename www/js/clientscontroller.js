@@ -6,7 +6,7 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
 
 
 
-        $(".evolOverlay").hide(5);
+
 
 
 
@@ -43,7 +43,8 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
 
 
     $scope.$on('$ionicView.afterLeave', function () {
-
+        TweenLite.to(document.getElementById('clientsconeleft'), 0, {opacity:0});
+        TweenLite.to(document.getElementById('clientsconeright'), 0, {opacity:0});
         console.log("Clients afterLeave");
         window.removeEventListener('deviceorientation', $scope.parallax, true);
     });
@@ -116,6 +117,8 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
     $scope.evolSrc="img/popups/B1.png"
 
     $scope.$on('$ionicView.beforeEnter', function(){
+        TweenLite.to(document.getElementById('clientsconeleft'), 0, {opacity:1});
+        TweenLite.to(document.getElementById('clientsconeright'), 0, {opacity:1});
         console.log("afterenter splashcontroller");
 
         move("#clientsmenu")

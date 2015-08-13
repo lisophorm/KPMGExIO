@@ -64,6 +64,8 @@ myApp.controller('SlideSwipeCtrl',  function ($scope, $ionicModal, $ionicPlatfor
 
     $scope.currentSwipe=0;
 
+    $scope.isInitialized=false;
+
     $scope.cImages=Array();
     $scope.cImages[0] = [{
         'src' : 'img/popups/age_manufatrueing.png',
@@ -158,15 +160,10 @@ myApp.controller('SlideSwipeCtrl',  function ($scope, $ionicModal, $ionicPlatfor
         'height' : 411
     }];
 
-    $ionicModal.fromTemplateUrl('image-modal.html', {
-        scope: $scope,
-        animation: 'slide-in-up'
-    }).then(function(modal) {
-        $scope.modal = modal;
+    $scope.initModal = function() {
+        console.log("******************** initialization modal");
 
-        $scope.imageSrc=$scope.aImages[0].src;
-
-    });
+    }
 
 
 
@@ -176,12 +173,13 @@ myApp.controller('SlideSwipeCtrl',  function ($scope, $ionicModal, $ionicPlatfor
     };
 
     $scope.closeModal = function() {
-        $scope.modal.hide();
-        //$scope.modal.remove();
+        //$scope.modal.hide();
+        $scope.modal.remove();
     };
 
     // Cleanup the modal when we're done with it!
     $scope.$on('$destroy', function() {
+        $scope.isInitialized=false;
         $scope.modal.remove();
     });
     // Execute action on hide modal
@@ -200,104 +198,86 @@ myApp.controller('SlideSwipeCtrl',  function ($scope, $ionicModal, $ionicPlatfor
     $scope.swipeLeft=function() {
         console.log("swipeleft");
         if($scope.currentSwipe<$scope.aImages.length-1) {
-            var destLeft= ($(window).width()-$scope.aImages[$scope.currentSwipe].width)*-1;
-            var destRight=($(window).width()+$scope.aImages[$scope.currentSwipe].width);
+            var destLeft= (1024+$scope.aImages[$scope.currentSwipe].width*2)*-1;
+            var destRight=(1024+$scope.aImages[$scope.currentSwipe].width*2);
 
-            move("#nextslide")
-                .x(destRight)
-                .duration('0s')
-                .end();
+            TweenLite.to(document.getElementById('nextslide'), 0, {css:{transform:"translateX("+destRight+"px)"}});
+            TweenLite.to(document.getElementById('currentslide'), 0, {css:{opacity:1,transform:"translateX(0px)"}});
+
             //$scope.imageSrc=$scope.aImages[$scope.currentSwipe].src+ '?' + new Date().getTime();
 
             $scope.currentSwipe++;
+            $timeout(function () {
             $scope.nextImageSrc=$scope.aImages[$scope.currentSwipe].src+ '?' + new Date().getTime();
 
-            //$scope.nextImageSrc=$scope.aImages[$scope.currentSwipe].src;
-            console.log($scope.aImages[$scope.currentSwipe].src);
+            }).then(function() {
+                console.log($scope.aImages[$scope.currentSwipe].src);
 
 
-
-
-           move("#nextslide")
-                .x(0)
-                .duration('0.5s')
-                .end();
-
-           move("#currentslide")
-                .ease('out')
-                .x(destLeft)
-                .duration('0.5s')
-                .end(function() {
-                   $timeout(function () {
-
-                       move("#currentslide")
-                           .ease('out')
-                           .x(0)
-                           .duration('0s')
-                           .end();
-                       $scope.imageSrc=$scope.aImages[$scope.currentSwipe].src+ '?' + new Date().getTime();
-                       $scope.$apply();
-                   });
-
-                    $scope.slidewidth=$scope.aImages[$scope.currentSwipe].width;
-                    $scope.slideheight=$scope.aImages[$scope.currentSwipe].height;
-                    console.log($scope.aImages[$scope.currentSwipe].src);
-
+                TweenLite.to(document.getElementById('nextslide'), 0.5, {
+                    css: {transform: "translateX(0px)"},
+                    ease: Sine.easeInOut
                 });
 
+                TweenLite.to(document.getElementById('currentslide'), 0.5, {
+                    css: {transform: "translateX(" + destLeft + "px)"},
+                    ease: Sine.easeInOut,
+                    onComplete: $scope.resetSlide,
+                    onCompleteParams: [$scope]
+                });
+            });
+
         }
         }
+
+    $scope.resetSlide=function(theScope) {
+        console.log("resetSlide");
+        console.log("resetslide:"+theScope.aImages[theScope.currentSwipe].src);
+        $timeout(function () {
+        theScope.imageSrc=theScope.aImages[theScope.currentSwipe].src;
+        //theScope.$apply();
+
+
+
+        })
+    }
+
     $scope.swipeRight=function() {
         console.log("swiperight");
         if($scope.currentSwipe>0) {
-            var destLeft= ($(window).width()-($scope.aImages[$scope.currentSwipe].width))*-1;
-            var destRight=($(window).width()+$scope.aImages[$scope.currentSwipe].width);
+            var destLeft= (1024+$scope.aImages[$scope.currentSwipe].width*2)*-1;
+            var destRight=(1024+$scope.aImages[$scope.currentSwipe].width*2);
 
-            move("#nextslide")
-                .x(destLeft)
-                .duration('0s')
-                .end();
+            TweenLite.to(document.getElementById('nextslide'), 0, {css:{transform:"translateX("+destLeft+"px)"}});
+            TweenLite.to(document.getElementById('currentslide'), 0, {css:{opacity:1,transform:"translateX(0px)"}});
+
             //$scope.imageSrc=$scope.aImages[$scope.currentSwipe].src+ '?' + new Date().getTime();
 
             $scope.currentSwipe--;
-            $scope.nextImageSrc=$scope.aImages[$scope.currentSwipe].src+ '?' + new Date().getTime();
+            $timeout(function () {
+                $scope.nextImageSrc=$scope.aImages[$scope.currentSwipe].src+ '?' + new Date().getTime();
 
-            //$scope.nextImageSrc=$scope.aImages[$scope.currentSwipe].src;
-            console.log($scope.aImages[$scope.currentSwipe].src);
+            }).then(function() {
+                console.log($scope.aImages[$scope.currentSwipe].src);
 
 
-
-
-            move("#nextslide")
-                .x(0)
-                .duration('0.5s')
-                .end();
-
-            move("#currentslide")
-                .ease('out')
-                .x(destRight)
-                .duration('0.5s')
-                .end(function() {
-                    $timeout(function () {
-
-                        move("#currentslide")
-                            .ease('out')
-                            .x(0)
-                            .duration('0s')
-                            .end(function() {
-                                $scope.imageSrc=$scope.aImages[$scope.currentSwipe].src+ '?' + new Date().getTime();
-                                $scope.$apply();
-                            });
-                    });
-
-                    $scope.slidewidth=$scope.aImages[$scope.currentSwipe].width;
-                    $scope.slideheight=$scope.aImages[$scope.currentSwipe].height;
-                    console.log($scope.aImages[$scope.currentSwipe].src);
-
+                TweenLite.to(document.getElementById('nextslide'), 0.5, {
+                    css: {transform: "translateX(0px)"},
+                    ease: Sine.easeInOut
                 });
 
+                TweenLite.to(document.getElementById('currentslide'), 0.5, {
+                    css: {transform: "translateX(" + destRight + "px)"},
+                    ease: Sine.easeInOut,
+                    onComplete: $scope.resetSlide,
+                    onCompleteParams: [$scope]
+                });
+            });
 
         }
+
+
+
     }
 
 
@@ -306,33 +286,34 @@ myApp.controller('SlideSwipeCtrl',  function ($scope, $ionicModal, $ionicPlatfor
            angular.copy($scope.cImages[groupIndex], $scope.aImages);
         }
 
-        $scope.imageSrc=$scope.aImages[index].src;
-        $scope.nextImageSrc=$scope.aImages[index].src;
-        $scope.slidewidth=$scope.aImages[index].width;
-        $scope.slideheight=$scope.aImages[index].height;
+        $scope.currentSwipe = index;
 
-        $scope.currentSwipe=index;
+        $ionicModal.fromTemplateUrl('image-modal.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function(modal) {
+            $scope.modal = modal;
+            $scope.isInitialized=true;
 
-      /*  $scope.modal.show();
-        $ionicSlideBoxDelegate.$getByHandle('PopupSwipe').update();
-        $ionicSlideBoxDelegate.$getByHandle('PopupSwipe').slide(0);
-        $scope.modal.hide();
-        $ionicSlideBoxDelegate.update();
+            $timeout(function () {
+                console.log("timeout modal");
+                $scope.slidewidth = $scope.aImages[index].width;
+                $scope.slideheight = $scope.aImages[index].height;
 
-        console.log(" slidemodal go to slide"+index);
+                $scope.$apply();
+
+                $scope.imageSrc = $scope.aImages[index].src;
+                $scope.nextImageSrc = $scope.aImages[index].src;
+
+                $scope.$apply();
+
+            }).then(function() {
+                console.log("timeout then");
+                $scope.modal.show();
+            });
+        });
 
 
-        setTimeout(function() {
-            $ionicSlideBoxDelegate.$getByHandle('PopupSwipe').update();
-            $ionicSlideBoxDelegate.$getByHandle('PopupSwipe').slide(index);
-            console.log("TIMEOUT MADUNNAPUTTANA");
-            $scope.modal.show();
-        },300)
-       $scope.modal.show();
-*/
-
-        $scope.modal.show();
-        //$(".modal-backdrop").css("opacity",0);
 
 
     };
@@ -341,11 +322,19 @@ myApp.controller('SlideSwipeCtrl',  function ($scope, $ionicModal, $ionicPlatfor
 
 });
 
-myApp.controller('EvolutionSwipeCtrl', ['$scope', '$ionicModal', '$ionicSlideBoxDelegate', function ($scope, $ionicModal, $ionicSlideBoxDelegate,$ionicScrollDelegate) {
-    console.log("evolution modal");
-    $scope.evolActiveSlide=3;
+myApp.controller('EvoSwipeCtrl',  function ($scope, $ionicModal, $ionicPlatform,$timeout,$ionicScrollDelegate) {
 
-    $scope.evolImages = [{
+
+    TweenLite.to(document.getElementsByClassName('evolOverlay'), 0, {css:{autoAlpha:0}});
+
+
+    $scope.currentSlideGroup=99;
+
+    $scope.currentSwipe=0;
+
+    $scope.isInitialized=false;
+
+    $scope.aImages = [{
         'src' : 'img/popups/B1.png',
         'width' : 1024,
         'height' : 542
@@ -412,54 +401,182 @@ myApp.controller('EvolutionSwipeCtrl', ['$scope', '$ionicModal', '$ionicSlideBox
     }
     ];
 
-    $scope.evolClose = function() {
-        console.log("MADONNA PUTTANA");
-        $(".evolOverlay").hide(300);
+    $scope.initModal = function() {
+        console.log("******************** initialization modal");
+
+    }
+
+
+
+
+    $scope.openModal = function() {
+        $scope.modal.show();
     };
+
+    $scope.evoCloseModal = function() {
+        console.log("CLOSE EVOL MODAL");
+        TweenLite.to(document.getElementsByClassName('evolOverlay'), 0.5, {css:{autoAlpha:0}});
+    };
+
+    // Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function() {
+        $scope.isInitialized=false;
+        $scope.modal.remove();
+    });
+    // Execute action on hide modal
+    $scope.$on('modal.hide', function() {
+        console.log('Modal is hidden2!');
+    });
+    // Execute action on remove modal
+    $scope.$on('modal.removed', function() {
+        console.log('Modal is removed2!');
+    });
+    $scope.$on('modal.shown', function() {
+        console.log('Modal is shown2!');
+    });
+
+
+    $scope.swipeLeft=function() {
+        console.log("swipeleft");
+        if($scope.currentSwipe<$scope.aImages.length-1) {
+            var destLeft= (1024+$scope.aImages[$scope.currentSwipe].width*2)*-1;
+            var destRight=(1024+$scope.aImages[$scope.currentSwipe].width*2);
+
+            TweenLite.to(document.getElementById('evonextslide'), 0, {css:{transform:"translateX("+destRight+"px)"}});
+            TweenLite.to(document.getElementById('evocurrentslide'), 0, {css:{opacity:1,transform:"translateX(0px)"}});
+
+            //$scope.imageSrc=$scope.aImages[$scope.currentSwipe].src+ '?' + new Date().getTime();
+
+            $scope.currentSwipe++;
+            $timeout(function () {
+                $scope.nextImageSrc=$scope.aImages[$scope.currentSwipe].src+ '?' + new Date().getTime();
+
+            }).then(function() {
+                console.log($scope.aImages[$scope.currentSwipe].src);
+
+
+                TweenLite.to(document.getElementById('evonextslide'), 0.5, {
+                    css: {transform: "translateX(0px)"},
+                    ease: Sine.easeInOut
+                });
+
+                TweenLite.to(document.getElementById('evocurrentslide'), 0.5, {
+                    css: {transform: "translateX(" + destLeft + "px)"},
+                    ease: Sine.easeInOut,
+                    onComplete: $scope.resetSlide,
+                    onCompleteParams: [$scope]
+                });
+            });
+
+        }
+    }
+
+    $scope.resetSlide=function(theScope) {
+        console.log("resetSlide");
+        console.log("resetslide:"+theScope.aImages[theScope.currentSwipe].src);
+        $timeout(function () {
+            theScope.imageSrc=theScope.aImages[theScope.currentSwipe].src;
+            //theScope.$apply();
+
+
+
+        })
+    }
+
+    $scope.swipeRight=function() {
+        console.log("swiperight");
+        if($scope.currentSwipe>0) {
+            var destLeft= (1024+$scope.aImages[$scope.currentSwipe].width*2)*-1;
+            var destRight=(1024+$scope.aImages[$scope.currentSwipe].width*2);
+
+            TweenLite.to(document.getElementById('evonextslide'), 0, {css:{transform:"translateX("+destLeft+"px)"}});
+            TweenLite.to(document.getElementById('evocurrentslide'), 0, {css:{opacity:1,transform:"translateX(0px)"}});
+
+            //$scope.imageSrc=$scope.aImages[$scope.currentSwipe].src+ '?' + new Date().getTime();
+
+            $scope.currentSwipe--;
+            $timeout(function () {
+                $scope.nextImageSrc=$scope.aImages[$scope.currentSwipe].src+ '?' + new Date().getTime();
+
+            }).then(function() {
+                console.log($scope.aImages[$scope.currentSwipe].src);
+
+
+                TweenLite.to(document.getElementById('evonextslide'), 0.5, {
+                    css: {transform: "translateX(0px)"},
+                    ease: Sine.easeInOut
+                });
+
+                TweenLite.to(document.getElementById('evocurrentslide'), 0.5, {
+                    css: {transform: "translateX(" + destRight + "px)"},
+                    ease: Sine.easeInOut,
+                    onComplete: $scope.resetSlide,
+                    onCompleteParams: [$scope]
+                });
+            });
+
+        }
+
+
+
+    }
+
+    $scope.slidewidth = $scope.aImages[0].width;
+    $scope.slideheight = $scope.aImages[0].height;
+
+
+    $scope.imageSrc = $scope.aImages[0].src;
+    $scope.nextImageSrc = $scope.aImages[0].src;
+
 
     $scope.evolutionOpenPopUp=function(theSlide) {
 
         var corrente=0;
-        console.log("EVOL POPUP");
+        console.log("EVOL POPUP"+$ionicScrollDelegate.getScrollPosition().top);
+
+        var top=392-$ionicScrollDelegate.getScrollPosition().top;
+
+
         console.log("Top : ");
         //console.log("Top : " + $ionicScrollDelegate.getScrollPosition().top);
-        console.log($scope.evolImages.length);
+        console.log($scope.aImages.length);
 
-        for (i=0;i<$scope.evolImages.length;i++) {
-            if($scope.evolImages[i].src.indexOf(theSlide)!=-1) {
-                console.log("ccc "+$scope.evolImages[i].src);
-                corrente=i;
+        for (i=0;i<$scope.aImages.length;i++) {
+            if($scope.aImages[i].src.indexOf(theSlide)!=-1) {
+                console.log("ccc "+$scope.aImages[i].src);
+                $scope.currentSwipe =i;
                 break;
             }
 
         }
-        //console.log("Top : " + $ionicScrollDelegate.getScrollPosition().top);
-        console.log("corrente"+corrente);
-        try {
-            $ionicSlideBoxDelegate.$getByHandle('EvolSwipe').slide(0);
-        }catch (e) {
-            console.log("error swipe");
-        }
 
 
-        setTimeout(function() {
-            try {
-                $ionicSlideBoxDelegate.$getByHandle('EvolutionSwipe').slide(corrente);
-            } catch (e) {
-                console.log("error swipe TIMER");
-            }
-            $(".evolOverlay").show(300);
-        },100);
-        //$ionicSlideBoxDelegate.$getByHandle('EvolSwipe').slide(0);
 
-        //$ionicSlideBoxDelegate.$getByHandle('EvolSwipe').slide(index);
+
+
+            $timeout(function () {
+                console.log("timeout modal");
+                $scope.slidewidth = $scope.aImages[$scope.currentSwipe].width;
+                $scope.slideheight = $scope.aImages[$scope.currentSwipe].height;
+
+                $scope.$apply();
+
+                $scope.imageSrc = $scope.aImages[$scope.currentSwipe].src;
+                $scope.nextImageSrc = $scope.aImages[$scope.currentSwipe].src;
+
+                $scope.$apply();
+
+            }).then(function() {
+                TweenLite.to(document.getElementsByClassName('evolOverlay'), 0, {onComplete:function() {
+                    TweenLite.to(document.getElementsByClassName('evolOverlay'), 0.3, {css:{autoAlpha:1}});
+                },css:{paddingTop:top+"px"}});
+
+            });
 
 
     };
+
     // Called each time the slide changes
-    $scope.slideChanged = function(index) {
-        console.log("modal2 slidechanged swipe"+ index);
-        $scope.slideIndex = index;
-    };
-}
-]);
+
+});
+

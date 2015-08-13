@@ -84,59 +84,35 @@ myApp.controller("WorldController",function($scope, $location, $stateParams,$ion
         console.log("World afterLeave");
         window.removeEventListener('deviceorientation', $scope.parallax, true);
 
-
+        TweenLite.to(document.getElementById('worldconeleft'), 0, {opacity:0});
+        TweenLite.to(document.getElementById('worldconeright'), 0, {opacity:0});
 
     });
 
     $scope.$on('$ionicView.afterEnter', function () {
-        move('#worldconeleft').delay("0.6s").ease('out').x(0).duration('0.3s').end();
-        move('#worldconeright').delay("0.6s").ease('out').x(0).duration('0.3s').end();
+        TweenLite.to(document.getElementById('worldconeleft'), 0.3, {delay:0.3,css:{transform:"translateX(0px)"},ease:Sine.easeInOut});
+        TweenLite.to(document.getElementById('worldconeright'), 0.3, {delay:0.3,css:{transform:"translateX(0px)"},ease:Sine.easeInOut});
         window.addEventListener('deviceorientation', $scope.parallax , false);
 
-        move("#worldmenu")
-            .set('opacity','1')
-            .delay('0.3s')
-            .duration('0.3s')
-            .end();
+        TweenLite.to(document.getElementById('worldmenu'), 0.3, {opacity:1,ease:Sine.easeInOut}).delay(0.3);
+
+
 
     });
 
     $scope.$on('$ionicView.beforeEnter', function () {
 
-        move("#worldmenu")
-            .set('opacity','0')
-            .duration('0s')
-            .end();
+        TweenLite.to(document.getElementById('worldmenu'), 0, {opacity:0});
+        var video=document.getElementById('videoPOP');
 
-        move("#videoPOP")
-            .ease('out')
-            .x(1024)
-            .duration('0')
-            .end();
+        TweenLite.to(video, 0, {css:{transform:"translateX(1024px)"}});
 
         console.log("beforeEnter KPMGcontroller");
 
-        move('#worldconeleft').x(-272).duration('0').end();
-        move('#worldconeright').x(93).duration('0').end();
+        TweenLite.to(document.getElementById('worldconeleft'), 0, {css:{transform:"translateX(-272px)"},ease:Sine.easeInOut,opacity:1});
+        TweenLite.to(document.getElementById('worldconeright'), 0, {css:{transform:"translateX(93px)"},ease:Sine.easeInOut,opacity:1});
 
-       // $('#worldconeleft').css('left','-272px');
-       // $('#worldconeright').css('left','93px');
 
-        //$(".slider-pager-page.active").css("stroke","#9f0 !important;");
-       /* if ($stateParams.slideNum) {
-            $ionicSlideBoxDelegate.slide( $stateParams.slideNum);
-
-            // $ionicSlideBoxDelegate.slide($stateParams.slideNum)
-
-        } else {
-            $ionicSlideBoxDelegate.slide(0);
-
-        }*/
-
-       /* move("#KPMGheader")
-            .set('height', '89px')
-            .duration('0.5s')
-            .end(); */
 
     });
 
@@ -144,11 +120,14 @@ myApp.controller("WorldController",function($scope, $location, $stateParams,$ion
         console.log("playvideo");
         var vid = document.getElementById("myVideoPlayer");
         $scope.videoSrc=theVid;
-        move("#videoPOP")
-            .ease('out')
-            .x(0)
-            .duration('0.5s')
-            .end();
+
+        var video=document.getElementById('videoPOP');
+
+        //TweenLite.to(vid, 2, {backgroundColor:"#ff0000", left:"0px", ease:Power2.easeInOut});
+
+        TweenLite.to(video, 0.5, {css:{transform:"translateX(0px)"}});
+
+
     }
 
 
@@ -158,12 +137,9 @@ myApp.controller("WorldController",function($scope, $location, $stateParams,$ion
 
         vid.pause();
 
-        move("#videoPOP")
-            .ease('out')
-            .x(1024)
-            .duration('0.5s')
-            .end();
+        var video=document.getElementById('videoPOP');
 
+        TweenLite.to(video, 0.5, {css:{transform:"translateX(1024px)"},ease:Sine.easeInOut});
 
     }
 

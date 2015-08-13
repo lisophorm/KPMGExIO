@@ -106,7 +106,7 @@
 .box {
     margin-left:284px;
     margin-top:0px;
-    height:500px;
+    height:700px;
 }
 
 /* top nab */
@@ -351,6 +351,7 @@
 	width: 272px;
 	height: 916px;
 	background-size: 292px 942px;
+	pointer-events: none;
 }
 
 .leftCorner img {
@@ -375,10 +376,12 @@
 	background-image: url("../img/common_world.jpg");
 	right: 0px;
 	bottom:0px;
-	width: 93px;
+	width: 60px;
 	height: 313px;
+	background-repeat: no-repeat;
 	-webkit-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
 	clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+	pointer-events: none;
 }
 
 .rightcone.clients {

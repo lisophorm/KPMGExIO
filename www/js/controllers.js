@@ -43,13 +43,17 @@ var myApp=angular.module('starter.controllers', [])
         $scope.$on('$ionicView.beforeEnter', function(){
             console.log("beforeEnter splashcontroller SPLASH");
 
+            TweenLite.to(document.getElementById('homeheader'), 0, {opacity:0,letterSpacing:"0px",autoRound:false});
+            TweenLite.to(document.getElementById('homebutworld'), 0, {opacity:0});
+            TweenLite.to(document.getElementById('homebutclients'), 0, {opacity:0});
+            TweenLite.to(document.getElementById('homebutkpmg'), 0, {opacity:0});
+            TweenLite.to(document.getElementById('homesliceleft'), 0, {opacity:0});
+            TweenLite.to(document.getElementById('homeslicecentre'), 0, {opacity:0});
+            TweenLite.to(document.getElementById('homesliceright'), 0, {opacity:0});
+
             $("#splash").show();
 
-            move(".KPMGheader")
-                .set('height','0px')
-                .duration('0.3s')
-                .delay('0.4s')
-                .end();
+            TweenLite.to(document.getElementsByClassName('KPMGheader'), 0.3, {height:"0px",ease:Sine.easeInOut}).delay(0.4);
 
             var header=document.getElementsByClassName("KPMGheader");
 
@@ -61,53 +65,15 @@ var myApp=angular.module('starter.controllers', [])
         $scope.$on('$ionicView.afterEnter', function(){
             console.log("afterEnter splashcontroller");
 
-            move("#homeheader")
-                .set('opacity','1')
-                .duration('2s')
-                .end();
-
-            move("#homeheader")
-                .set('letter-spacing','10px')
-                .duration('2s')
-                .delay('0.3s')
-                .end();
+            TweenLite.to(document.getElementById('homeheader'), 1, {opacity:1,letterSpacing:"10px",autoRound:false,ease:Sine.easeInOut}).delay(0.5);
+            TweenLite.to(document.getElementById('homebutworld'), 0.5, {opacity:1,ease:Sine.easeInOut}).delay(0.9);
+            TweenLite.to(document.getElementById('homebutclients'), 0.5, {opacity:1,ease:Sine.easeInOut}).delay(1.3);
+            TweenLite.to(document.getElementById('homebutkpmg'), 0.5, {opacity:1,ease:Sine.easeInOut}).delay(1.6);
+            TweenLite.to(document.getElementById('homesliceleft'), 0.5, {opacity:1,ease:Sine.easeInOut}).delay(0.5);
+            TweenLite.to(document.getElementById('homeslicecentre'), 0.5, {opacity:1,ease:Sine.easeInOut}).delay(0.8);
+            TweenLite.to(document.getElementById('homesliceright'), 0.5, {opacity:1,ease:Sine.easeInOut}).delay(1.1);
 
 
-            move("#homebutworld")
-                .set('opacity','1')
-                .duration('0.5s')
-                .delay('0.8s')
-                .end();
-
-            move("#homebutclients")
-                .set('opacity','1')
-                .duration('0.5s')
-                .delay('1.1s')
-                .end();
-
-            move("#homebutkpmg")
-                .set('opacity','1')
-                .duration('0.5s')
-                .delay('1.4s')
-                .end();
-
-            move("#homesliceleft")
-                .set('opacity','1')
-                .duration('0.5s')
-                .delay('0.3s')
-                .end();
-
-            move("#homeslicecentre")
-                .set('opacity','1')
-                .duration('0.5s')
-                .delay('0.6s')
-                .end();
-
-            move("#homesliceright")
-                .set('opacity','1')
-                .duration('0.5s')
-                .delay('0.9s')
-                .end();
 
         });
 
@@ -118,53 +84,7 @@ var myApp=angular.module('starter.controllers', [])
         $scope.$on('$ionicView.beforeLeave', function(){
             console.log("afterLeave splashcontroller");
 
-            move("#homesliceright")
-                .set('opacity','0')
-                .duration('0s')
-                .end();
-
-            move("#homesliceleft")
-                .set('opacity','0')
-                .duration('0s')
-                .end();
-
-            move("#homeslicecentre")
-                .set('opacity','0')
-                .duration('0s')
-                .end();
-
-            move("#homebutworld")
-                .set('opacity','0')
-                .duration('0s')
-                .end();
-
-            move("#homebutclients")
-                .set('opacity','0')
-                .duration('0s')
-                .end();
-
-            move("#homebutkpmg")
-                .set('opacity','0')
-                .duration('0s')
-                .end();
-
-
-            move("#homeheader")
-                .set('opacity','0')
-                .duration('0s')
-                .end();
-
-            move("#homeheader")
-                .set('letter-spacing','0px')
-                .duration('0s')
-                .end();
-
-
-            move(".KPMGheader")
-                .set('height','89px')
-                .duration('0.3s')
-                .delay('0.4s')
-                .end();
+            TweenLite.to(document.getElementsByClassName('KPMGheader'), 0.3, {height:"89px",ease:Sine.easeInOut});
 
 
         /*    move("#KPMGheader")

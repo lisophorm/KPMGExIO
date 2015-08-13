@@ -23,7 +23,12 @@
     <script src="lib/angular-retina/lib/angular-retina.js"></script>
     <script src="lib/ngvideo/dist/ng-video.min.js"></script>
     <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <script src="lib/greensock/src/uncompressed/TweenLite.js"></script>
     <script src="lib/greensock/src/uncompressed/TimelineLite.js"></script>
+    <script src="lib/greensock/src/uncompressed/plugins/CSSPlugin.js"></script>
+    <script src="lib/greensock/src/uncompressed/plugins/AttrPlugin.js"></script>
+    <script src="lib/greensock/src/uncompressed/plugins/EaselPlugin.js"></script>
+    <script src="lib/greensock/src/uncompressed/easing/EasePack.js"></script>
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
@@ -53,12 +58,13 @@
 <script id="image-modal.html" type="text/ng-template">
     <div class="modal image-modal transparent" ng-click="closeModal()">
         <ion-pane class="transparent">
-            <img  ng-src="{{nextImageSrc}}" id="nextslide" on-swipe-left="swipeLeft()" width="{{slidewidth}}" height="{{slideheight}}" class="fullscreen-image"/>
+            <img  ng-src="{{nextImageSrc}}" id="nextslide" on-swipe-left="swipeLeft()" on-swipe-right="swipeRight()" width="{{slidewidth}}" height="{{slideheight}}" class="fullscreen-image"/>
 
             <img ng-src="{{imageSrc}}" id="currentslide" on-swipe-left="swipeLeft()" on-swipe-right="swipeRight()" width="{{slidewidth}}" height="{{slideheight}}"  class="fullscreen-image"/>
         </ion-pane>
     </div>
 </script>
+
 
 
 
