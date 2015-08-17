@@ -3,25 +3,21 @@
 
         <ion-slide-box active-slide="myActiveSlide" on-slide-changed="slideChanged(index)" delegate-handle="WorldSwipe">
 
-            <ion-slide>
+            <ion-slide class="whiteBg">
                 <div class="box" id="worldmenu">
                     <div class="row">
 
                         <div class="mainMenuWrap">
                             <div class="mainMenu world">
                                 <a href="#" ng-click="callSlide(1)" class="world"><br/>Welcome<br/>from Julio<br/>
-                        <span class="mainMenu desc">
-                            <br/>An introduction from Julio Hernandez, Global Customer COE Lead
-                        </span></a>
+</a>
                             </div>
                         </div>
 
                         <div class="mainMenuWrap">
                             <div class="mainMenu world">
                                 <a href="#" ng-click="callSlide(2)" class="world">The age<br/>of the<br/>customer
-                        <span class="mainMenu desc">
-                            <br/>The changing nature of work and the dawn of a new age focused on the customer
-                        </span></a>
+</a>
                             </div>
                         </div>
 
@@ -29,9 +25,7 @@
                             <div class="mainMenu world">
                                 <a href="#" ng-click="callSlide(3)" class="world">Client<br/>perspectives<br/>on
                                     customer
-                        <span class="mainMenu desc">
-                            <br/>Hear from industry experts from around the world
-                        </span></a>
+</a>
                             </div>
                         </div>
 
@@ -45,9 +39,7 @@
                         <div class="mainMenuWrap">
                             <div class="mainMenu world">
                                 <a href="#" ng-click="callSlide(4)" class="world">Four<br/>Market<br/>Imperatives
-                        <span class="mainMenu desc">
-                            <br/>The four things clients need to address to put their customers first
-                        </span></a>
+</a>
                             </div>
                         </div>
 
@@ -75,22 +67,22 @@
             <ion-slide>
                 <div class="holder" style="left: 0px;top: 0px; height: 800px;" ng-controller="SlideSwipeCtrl" ng-init="initModal()">
                     <div class="holder" style="top: 86px;left: 291px;">
-                        <img ng-src="img/world/upper_quote.png" width="412" height="230">
+                        <img ng-src="img/world/upper_quote.png" width="660" height="179">
                     </div>
-                    <div class="holder" style="top: 338px;left: 283px;">
-                        <img ng-src="img/world/age_of_manuf.png" width="191" height="128" ng-click="goToSlide(0,0)">
+                    <div class="holder" style="top: 281px;left: 283px;">
+                        <img ng-src="img/world/age_of_manuf.png" width="191" height="129" ng-click="goToSlide(0,0)">
                     </div>
-                    <div class="holder" style="top: 338px;left: 474px;">
+                    <div class="holder" style="top: 281px;left: 474px;">
                         <img ng-src="img/world/age_of_distrib.png" width="173" height="128" ng-click="goToSlide(1,0)">
                     </div>
-                    <div class="holder" style="top: 338px;left: 647px;">
-                        <img ng-src="img/world/age_of_info.png" width="176" height="128" ng-click="goToSlide(2,0)">
+                    <div class="holder" style="top: 281px;left: 647px;">
+                        <img ng-src="img/world/age_of_info.png" width="176" height="129" ng-click="goToSlide(2,0)">
                     </div>
-                    <div class="holder" style="top: 338px;left: 823px;">
-                        <img ng-src="img/world/age_of_customer.png" width="180" height="128" ng-click="goToSlide(3,0)">
+                    <div class="holder" style="top: 281px;left: 823px;">
+                        <img ng-src="img/world/age_of_customer.png" width="180" height="129" ng-click="goToSlide(3,0)">
                     </div>
-                    <div class="holder" style="top: 518px;left: 286px;">
-                        <img ng-src="img/world/quote.png" width="614" height="266">
+                    <div class="holder" style="top: 468px;left: 287px;">
+                        <img ng-src="img/world/quote.png" width="666" height="101">
                     </div>
                 </div>
 
@@ -98,32 +90,26 @@
 
             <ion-slide>
                 <div class="holder  whiteBg" style="top:0px;left: 0px;width: 1024px;height: 800px;">
-                    <div class="holder" style="top: 0px;left: 180px;">
-                        <img ng-src="img/world/karen_walker.png" width="371" height="562">
-                    </div>
-                    <div class="holder" style="top: 0px;left: 420px;">
-                        <img ng-src="img/world/mike_regnier.png" width="371" height="562">
-                    </div>
-                    <div class="holder" style="top: 0px;left: 661px;">
-                        <img ng-src="img/world/darren_whitelaw.png" width="371" height="562">
+                    <div class="holder" style="top: 0px;left: 0px;">
+                        <img ng-src="img/world/1_background.png" width="1024" height="688">
                     </div>
 
-                    <div class="holder" style="top: 523px;left: 133px;">
-                        <img ng-src="img/world/video_01.png"  width="288" height="246"
+                    <div class="holder" style="top: 0px;left: 172px;">
+                        <img ng-src="img/world/video_01.png"  width="328" height="396"
                              ng-click="playVideo('videos/first_direct.mp4')">
                     </div>
 
 
-                    <div class="holder" style="top: 523px;left: 373px;">
-                        <img ng-src="img/world/video_02.png"  width="288" height="246"
+                    <div class="holder" style="top: 0px;left: 431px;">
+                        <img ng-src="img/world/video_02.png"  width="328" height="436"
                              ng-click="playVideo('videos/ybs.mp4')">
                     </div>
-                    <div class="holder" style="top: 523px;left: 613px;">
-                        <img ng-src="img/world/video_03.png" width="288" height="246"
+                    <div class="holder" style="top: 0px;left: 708px;">
+                        <img ng-src="img/world/video_03.png" width="316" height="397"
                              ng-click="playVideo('videos/mclaren.mp4')">
                     </div>
-                    <div class="holder" style="top: 361px;left: 0px;">
-                        <img ng-src="img/world/client_perspective_stripe.png" width="517" height="55">
+                    <div class="holder" style="top: 80px;left: 117px;">
+                        <img ng-src="img/world/client_perspective_stripe.png" width="582" height="55">
                     </div>
                 </div>
 

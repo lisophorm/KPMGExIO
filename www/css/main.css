@@ -66,12 +66,12 @@
 
 .mainMenuWrap {
     width: 200px;
-    height:220px;
+    height:180px;
 }
 .mainMenu a {
 
     display:block;
-    height: 162px;
+    height: 130px;
     text-decoration: none;
 
     -webkit-transition: all .5s ease;
@@ -79,11 +79,24 @@
     transition: all .5s ease;
     background-image:url("../img/worldarrow.png");
     background-repeat: no-repeat;
-    background-position: 1px 140px;
+    background-position: 1px 100px;
     padding-bottom: 40px;
 }
 .mainMenu a:active {
-    background-position: 15px 140px;
+    background-position: 15px 100px;
+}
+
+.mainMenuWrap.short {
+	width: 200px;
+	height:130px;
+}
+.mainMenu.short a {
+
+	background-position: 1px 80px;
+
+}
+.mainMenu a:active {
+	background-position: 15px 100px;
 }
 
 .mainMenu .desc {
@@ -361,11 +374,11 @@
 }
 
 .leftCorner.clients {
-	background-image: url("../img/common_clients.jpg");
+	background-image: url("../img/common_clients_right.png");
 }
 
 .leftCorner.kpmg {
-	background-image: url("../img/common_kpmg.jpg");
+	background-image: url("../img/common_kpmg_right.png");
 	background-size: 292px 942px;
 
 }
@@ -373,15 +386,16 @@
 
 .rightcone {
 	position:fixed;
-	background-image: url("../img/common_world.jpg");
+	background-image: url("../img/common_world_right.png");
 	right: 0px;
 	bottom:0px;
 	width: 60px;
 	height: 313px;
 	background-repeat: no-repeat;
-	-webkit-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-	clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+
 	pointer-events: none;
+	-webkit-mask: url("../img/right_mask.png") bottom right no-repeat;
+
 }
 
 .rightcone.clients {

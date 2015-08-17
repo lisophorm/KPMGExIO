@@ -51,7 +51,7 @@ var myApp=angular.module('starter.controllers', [])
             TweenLite.to(document.getElementById('homeslicecentre'), 0, {opacity:0});
             TweenLite.to(document.getElementById('homesliceright'), 0, {opacity:0});
 
-            $("#splash").show();
+            angular.element(document.getElementById("splash")).css("display","");
 
             TweenLite.to(document.getElementsByClassName('KPMGheader'), 0.3, {height:"0px",ease:Sine.easeInOut}).delay(0.4);
 
@@ -78,7 +78,8 @@ var myApp=angular.module('starter.controllers', [])
         });
 
         $scope.$on('$ionicView.afterLeave', function(){
-            $("#splash").hide();
+            angular.element(document.getElementById("splash")).css("display","none");
+
         });
 
         $scope.$on('$ionicView.beforeLeave', function(){

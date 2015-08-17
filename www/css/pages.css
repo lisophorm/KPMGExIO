@@ -1,6 +1,5 @@
 @charset "utf-8";
 #homesliceleft {
-	pointer-events: none;
 	opacity: 0;
 	position: absolute;
 	width: 471px;
@@ -25,8 +24,8 @@
 	pointer-events: none;
 	background-size: 616px 768px;
 }
+
 #homesliceright {
-	pointer-events: none;
 	opacity: 0;
 	background-image: url(../pageimg/right_panel.png);
 	background-repeat: no-repeat;
@@ -186,14 +185,14 @@
 	 background-repeat: repeat;
 	 width: 100%;
 	 height: 100%;
-	padding-top: 392px;
  }
 
 
 
 .evolOverlay img {
 
-position:absolute;;
+position:absolute;
+	width:1024px;
 
 }
 

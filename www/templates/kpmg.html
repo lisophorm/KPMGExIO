@@ -5,33 +5,27 @@
 
 
       <ion-slide-box ng-cloak active-slide="myActiveSlide" on-slide-changed="slideChangedKPMG(index)" on delegate-handle="KPMGSwipeHandle">
-        <ion-slide>
+        <ion-slide class="whiteBg">
           <div class="box" id="kpmgmenu">
             <div class="row">
               <div class="mainMenuWrap">
                 <div class="mainMenu kpmg">
                   <a href="#" ng-click="callSlide(1)" class="kpmg"><br/>Propelling<br/>your clients
-                        <span class="mainMenu desc">
-                            <br/>Propelling your clients into<br/>the customer experience<br/>stratosphere
-                        </span></a>
+                       </a>
                 </div>
               </div>
 
               <div class="mainMenuWrap">
                 <div class="mainMenu kpmg">
                   <a href="#" ng-click="callSlide(2)" class="kpmg">Customer Experience Toolkit
-                        <span class="mainMenu desc">
-                           <br/>The KPMG global customer experience toolkit<br/>
-                        </span></a>
+                     </a>
                 </div>
               </div>
 
               <div class="mainMenuWrap">
                 <div class="mainMenu kpmg">
                   <a href="#" ng-click="callSlide(3)" class="kpmg">Delivery method helicopter view
-                        <span class="mainMenu desc">
-                            <br/>Overview of our modular CX transformation method
-                        </span></a>
+                  </a>
                 </div>
               </div>
             </div>
@@ -39,57 +33,45 @@
               <div class="mainMenuWrap">
                 <div class="mainMenu kpmg">
                   <a href="#" ng-click="callSlide(4)" class="kpmg">Building your technical capability
-                        <span class="mainMenu desc">
-                            <br/>Technical training to develop your CX capability
-                        </span></a>
+                  </a>
                 </div>
               </div>
 
               <div class="mainMenuWrap">
                 <div class="mainMenu kpmg">
                   <a href="#" ng-click="callSlide(5)" class="kpmg"><br/>Market-leading delivery tools
-                        <span class="mainMenu desc">
-                            <br/>An overview of software assets for you and your teams
-                        </span></a>
+           </a>
                 </div>
               </div>
 
               <div class="mainMenuWrap">
                 <div class="mainMenu kpmg">
                   <a href="#" ng-click="callSlide(6)" class="kpmg"><br/>Go-to-market strategy
-                        <span class="mainMenu desc">
-                            <br/>How you can dominate CX in your geography
-                        </span></a>
+         </a>
                 </div>
               </div>
 
             </div>
 
             <div class="row">
-              <div class="mainMenuWrap">
-                <div class="mainMenu kpmg">
+              <div class="mainMenuWrap short">
+                <div class="mainMenu kpmg short">
                     <a href="#" ng-click="callSlide(7)" class="kpmg"><br/>Sales messages
-                        <span class="mainMenu desc">
-                            <br/>Messages to support you win high value CX work
-                        </span></a>
+</a>
                 </div>
             </div>
 
                 <div class="mainMenuWrap">
-                    <div class="mainMenu kpmg">
+                    <div class="mainMenu kpmg short">
                         <a href="#" ng-click="callSlide(8)" class="kpmg">Client target profile
-                        <span class="mainMenu desc">
-                            <br/>text here text here
-                        </span></a>
+</a>
                     </div>
                 </div>
 
                 <div class="mainMenuWrap">
-                    <div class="mainMenu kpmg">
+                    <div class="mainMenu kpmg short">
                         <a href="#" ng-click="callSlide(9)" class="kpmg"><br/>Your Contacts
-                        <span class="mainMenu desc">
-                            <br/>Who to reach out to for further support
-                        </span></a>
+</a>
                     </div>
                 </div>
 
@@ -103,10 +85,10 @@
               <div class="holder" style="width: 560px;height: 75px;line-height:120%;top: 80px;left: 290px;font-family: UniversforKPMG;text-transform:uppercase;color: #009fda;font-size: 24px;font-weight: 300;text-align: left;">
                   So...what can you do to propel your clients into the customer experience stratosphere?
               </div>
-              <div class="holder" ng-click="callSlide(3)" style="top: 255px;left: 289px;">
+              <div class="holder" ng-click="callSlide(2)" style="top: 255px;left: 289px;">
                   <img ng-src="img/kpmg/3_2_up_link.png" width="582" height="108">
               </div>
-              <div class="holder" ng-click="callSlide(5)" style="top: 422px;left: 289px;">
+              <div class="holder" ng-click="callSlide(4)" style="top: 422px;left: 289px;">
                   <img ng-src="img/kpmg/3_2_down_link.png" width="555" height="64">
               </div>
           </ion-slide>
@@ -120,12 +102,12 @@
               <img ng-src="img/kpmg/kpmg_3_booklet.png" width="1024" height="702">
           </div>
 
-              <div class="my_hotspot" style="width: 203px;height: 151px;top: 655px;left: 290px;" ng-click="booklet('thetoolkit')"></div>
-              <div class="my_hotspot" style="width: 203px;height: 151px;top: 655px;left: 525px;" ng-click="booklet('2_work_in_space')"></div>
-              <div class="my_hotspot" style="width: 203px;height: 151px;top: 655px;left: 755px;" ng-click="booklet('3_delivery')"></div>
+              <div class="my_hotspot" style="width: 203px;height: 151px;top: 655px;left: 290px;" ng-click="booklet('1_OM025549A_global_customer_toolkit')"></div>
+              <div class="my_hotspot" style="width: 203px;height: 151px;top: 655px;left: 525px;" ng-click="booklet('2_toolkit')"></div>
+              <div class="my_hotspot" style="width: 203px;height: 151px;top: 655px;left: 755px;" ng-click="booklet('3_our_work_in_this_space')"></div>
               <div class="my_hotspot" style="width: 203px;height: 151px;top: 840px;left: 290px;" ng-click="booklet('4_insights')"></div>
-              <div class="my_hotspot" style="width: 203px;height: 151px;top: 840px;left: 525px;" ng-click="booklet('5_toolkit')"></div>
-              <div class="my_hotspot" style="width: 203px;height: 151px;top: 840px;left: 755px;" ng-click="booklet('6_skills_and_capability')"></div>
+              <div class="my_hotspot" style="width: 203px;height: 151px;top: 840px;left: 525px;" ng-click="booklet('5_delivery')"></div>
+              <div class="my_hotspot" style="width: 203px;height: 151px;top: 840px;left: 755px;" ng-click="booklet('6_skills_capabilityy')"></div>
 
 
 
@@ -157,11 +139,11 @@
               <div class="holder" style="top: 81px;left: 290px;">
                   <img ng-src="img/kpmg/3_5_top.png" width="659" height="398">
               </div>
-              <div class="holder" style="top: 526px;left: 291px;">
-                  <img ng-src="img/kpmg/3_5_DIAGRAM.png" width="665" height="389">
+              <div class="holder" style="top: 507px;left: 291px;;">
+                  <img ng-src="img/kpmg/3_5_DIAGRAM.png" width="665" height="393">
               </div>
-              <div class="holder" style="top: 952px;left: 291px;">
-                  <img ng-src="img/kpmg/3_5_icons.png" width="665" height="290">
+              <div class="holder" style="top: 930px;left: 291px;">
+                  <img ng-src="img/kpmg/3_5_icons.png" width="665" height="312">
               </div>
           </ion-slide>
           <ion-slide >
@@ -169,11 +151,11 @@
                   <img ng-src="img/kpmg/kpmg_6.png" width="668" height="443">
 
               </div>
-              <div class="holder" style="top: 517px;left: 174px;">
-                  <img ng-src="img/kpmg/kpmg_6_icon.png" width="98" height="176">
+              <div class="holder" style="top: 517px;left: 199px;">
+                  <img ng-src="img/kpmg/kpmg_6_icon.png" width="73" height="131">
 
               </div>
-              <div class="holder" style="width: 665px;height: 361px;top: 517px;left: 291px;" ng-click="">
+              <div class="holder" style="width: 665px;height: 361px;top: 540px;left: 291px;" ng-click="">
                   <ion-scroll  min-zoom="0.3" zooming="true" direction="xy" style="width: 665px;height: 361px">
                       <div style="width: 2000px;height:981px; background: url('img/journey_map.jpg');background-repeat: no-repeat;"></div>
                   </ion-scroll>
@@ -184,9 +166,9 @@
               <img ng-src="img/kpmg/3_7_header.png" width="665" height="80">
           </div>
               <div class="holder" style="top: 197px;left: 291px;">
-                  <img ng-src="img/kpmg/3_7_top.png" width="666" height="669">
+                  <img ng-src="img/kpmg/3_7_top.png" width="666" height="713ioni">
               </div>
-              <div class="holder" style="top: 915px;left: 291px;">
+              <div class="holder" style="top: 939px;left: 291px;">
                   <img ng-src="img/kpmg/3_7_bottom.png" width="666" height="730">
               </div>
           </ion-slide>
@@ -196,11 +178,8 @@
               </div>
           </ion-slide>
           <ion-slide>
-              <div class="holder" style="top: 83px;left: 290px;">
-                  <img ng-src="img/kpmg/copy.png" width="410" height="194">
-              </div>
-              <div class="holder" style="top: 332px;left: 299px;">
-                  <img ng-src="img/kpmg/kpmg_target.png" width="624" height="387">
+              <div class="holder" style="top: 78px;left: 290px;;">
+                  <img ng-src="img/kpmg/copy.png" width="634" height="587">
               </div>
           </ion-slide>
           <ion-slide >

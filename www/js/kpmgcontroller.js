@@ -53,7 +53,7 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
         TweenLite.to(document.getElementById('kpmgconeright'), 0, {opacity:0});
 
         console.log("KPMG afterLeave");
-        window.removeEventListener('deviceorientation', $scope.parallax, true);
+        //window.removeEventListener('deviceorientation', $scope.parallax, true);
     });
 
     $scope.$on('$ionicView.beforeEnter', function () {
@@ -61,31 +61,22 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
         TweenLite.to(document.getElementById('kpmgconeleft'), 0, {opacity:1});
         TweenLite.to(document.getElementById('kpmgconeright'), 0, {opacity:1});
 
+        angular.element(document.getElementsByClassName("slider")).css("height","688px");
+        angular.element(document.getElementsByClassName("scroll")).css("height","688px");
+        angular.element(document.getElementsByClassName("slider-slides")).css("height","688px");
+
     console.log("beforeEnter");
 
-        move("#kpmgmenu")
-            .set('opacity','0')
-            .duration('0s')
-            .end();
+        angular.element(document.getElementById("kpmgmenu")).css("opacity","0");
+        angular.element(document.getElementById("clientsmenu")).css("opacity","0");
 
-        move(".KPMGheader")
-            .set('height','89px')
-            .duration('0.3s')
-            .delay('0.4s')
-            .end();
 
-  /*      if ($stateParams.slideNum) {
-            $ionicSlideBoxDelegate.slide($stateParams.slideNum);
+        TweenLite.to(document.getElementById('kpmgconeleft'), 0, {css:{transform:"translateX(-272px)"}});
+        TweenLite.to(document.getElementById('kpmgconeright'), 0, {css:{transform:"translateX(93px)"}});
 
-            // $ionicSlideBoxDelegate.slide($stateParams.slideNum)
+        TweenLite.to(document.getElementsByClassName('KPMGheader'), 0.3, {css:{height:'89px'}}).delay(0.4);
 
-        } else {
-            $ionicSlideBoxDelegate.slide(0);
 
-        }*/
-
-        move('#kpmgconeleft').x(-272).duration('0').end();
-        move('#kpmgconeright').x(93).duration('0').end();
 
             var position = document.getElementById("position");
 
@@ -122,7 +113,7 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
                 alt = 1445;
                 break;
             case 5:
-                alt = 1000;
+                alt = 1050;
                 break;
             case 6:
                 alt = 1751;
@@ -143,10 +134,9 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
 
         }
 
-        $(".slider").height(alt);
-        $(".scroll").height(alt);
-        $(".slider-slides").height(alt);
-        console.log("KPMG slide changed!" + index + " height:" + $(".slider").height());
+        angular.element(document.getElementsByClassName("slider")).css("height",alt+"px");
+        angular.element(document.getElementsByClassName("scroll")).css("height",alt+"px");
+        angular.element(document.getElementsByClassName("slider-slides")).css("height",alt+"px");
        /* $timeout( function() {
 
             $ionicScrollDelegate.resize();
@@ -156,18 +146,13 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
 
     $scope.$on('$ionicView.afterEnter', function () {
 
-        move("#kpmgmenu")
-            .set('opacity','1')
-            .delay('0.3s')
-            .duration('0.3s')
-            .end();
 
-        setTimeout(function() {
-            move('#kpmgconeleft').delay("0.6s").ease('out').x(0).duration('0.3s').end();
-            move('#kpmgconeright').delay("0.6s").ease('out').x(0).duration('0.3s').end();
+        TweenLite.to(document.getElementById('kpmgmenu'), 0.3, {css:{opacity:1}}).delay(0.3);
 
-            window.addEventListener('deviceorientation', $scope.parallax , false);
-        },300);
+        TweenLite.to(document.getElementById('kpmgconeleft'), 0.3, {css:{transform:"translateX(0px)"}}).delay(0.6);
+        TweenLite.to(document.getElementById('kpmgconeright'), 0.3, {css:{transform:"translateX(0px)"}}).delay(0.6);
+
+
 
 
     });

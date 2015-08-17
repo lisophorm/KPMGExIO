@@ -55,7 +55,7 @@ myApp.controller("WorldController",function($scope, $location, $stateParams,$ion
                 alt = 571+265;
                 break;
             case 3:
-                alt = 800;
+                alt = 768;
                 break;
             case 4:
                 alt = 680;
@@ -69,9 +69,9 @@ myApp.controller("WorldController",function($scope, $location, $stateParams,$ion
         //angular.element(document.getElementsByClassName("slider")).height(alt);
         //angular.element(document.getElementsByClassName("scroll")).height(alt);
         //angular.element(document.getElementsByClassName("slider-slides")).height(alt);
-        $(".slider").height(alt);
-        $(".scroll").height(alt);
-        $(".slider-slides").height(alt);
+        angular.element(document.getElementsByClassName("slider")).css("height",alt+"px");
+        angular.element(document.getElementsByClassName("scroll")).css("height",alt+"px");
+        angular.element(document.getElementsByClassName("slider-slides")).css("height",alt+"px");
         //console.log("WORLD slide changed!" + index + " height:" + angular.element(document.getElementsByClassName("slider")).height());
         /*$timeout( function() {
 
@@ -82,7 +82,7 @@ myApp.controller("WorldController",function($scope, $location, $stateParams,$ion
 
     $scope.$on('$ionicView.afterLeave', function () {
         console.log("World afterLeave");
-        window.removeEventListener('deviceorientation', $scope.parallax, true);
+        //window.removeEventListener('deviceorientation', $scope.parallax, true);
 
         TweenLite.to(document.getElementById('worldconeleft'), 0, {opacity:0});
         TweenLite.to(document.getElementById('worldconeright'), 0, {opacity:0});
@@ -92,7 +92,7 @@ myApp.controller("WorldController",function($scope, $location, $stateParams,$ion
     $scope.$on('$ionicView.afterEnter', function () {
         TweenLite.to(document.getElementById('worldconeleft'), 0.3, {delay:0.3,css:{transform:"translateX(0px)"},ease:Sine.easeInOut});
         TweenLite.to(document.getElementById('worldconeright'), 0.3, {delay:0.3,css:{transform:"translateX(0px)"},ease:Sine.easeInOut});
-        window.addEventListener('deviceorientation', $scope.parallax , false);
+        //window.addEventListener('deviceorientation', $scope.parallax , false);
 
         TweenLite.to(document.getElementById('worldmenu'), 0.3, {opacity:1,ease:Sine.easeInOut}).delay(0.3);
 

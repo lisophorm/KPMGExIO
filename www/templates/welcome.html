@@ -1,6 +1,6 @@
 <ion-view view-title="Welcome">
     <ion-content>
-    <div id="splash">
+    <div id="splash" ng-controller="HeaderCtrl" on-swipe="goWorld()">
         <div id="homesliceleft"></div>
         <div id="homeslicecentre"></div>
         <div id="homesliceright"></div>
@@ -11,7 +11,7 @@
             TOOLKIT<br/>
         </div>
 
-        <div ng-controller="HeaderCtrl">
+        <div >
             <div id="homebutkpmg" ng-click="goKPMG()">
                 <a href="#">HOW CAN<BR/>
                 <strong>KPMG</strong> HELP</a>
