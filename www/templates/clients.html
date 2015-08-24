@@ -1,5 +1,5 @@
 <ion-view view-title="Clients">
-    <ion-content  >
+    <ion-content>
 
 
         <ion-slide-box active-slide="myActiveSlide" on-slide-changed="slideChanged(index)"
@@ -11,7 +11,7 @@
                             <div class="mainMenu clients">
                                 <a href="#" ng-click="callSlide(1)" class="clients">evolution of<br/>the
                                     customer<br/>focussed<br/>organisation<br/>
-                        </a>
+                                </a>
                             </div>
                         </div>
 
@@ -19,7 +19,7 @@
                             <div class="mainMenu clients">
                                 <a href="#" ng-click="callSlide(2)" class="clients"><br/>CUSTOMER IS<br/>KING<br/>(OR
                                     QUEEN)<br/>
-                        </a>
+                                </a>
                             </div>
                         </div>
 
@@ -37,7 +37,7 @@
                             <div class="mainMenu clients">
                                 <a href="#" ng-click="callSlide(3)" class="clients"><br/>SEIZE THE<br/>OPPORTUNITY<br/>OR
                                     DECLINE?<br/>
-                       </a>
+                                </a>
                             </div>
                         </div>
 
@@ -48,7 +48,7 @@
                         <div class="mainMenuWrap">
                             <div class="mainMenu clients">
                                 <a href="#" ng-click="callSlide(4)" class="clients"><br/>THE<br/>Elevator<br/>Pitch<br/>
-                       </a>
+                                </a>
                             </div>
                         </div>
 
@@ -56,14 +56,14 @@
                             <div class="mainMenu clients">
                                 <a href="#" ng-click="callSlide(5)" class="clients">Why customer experience matters
                                     to our clients
-                      </a>
+                                </a>
                             </div>
                         </div>
 
                         <div class="mainMenuWrap">
                             <div class="mainMenu clients">
                                 <a href="#" ng-click="callSlide(6)" class="clients">what<br/>succesful<br/>clients do to<br/>succeed
-</a>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -72,16 +72,16 @@
 
 
             </ion-slide>
-            <ion-slide style="height: 1024px;"  >
-                <div class="holder" id="evoHotSpots" style="top:0px;left:0px;" >
+            <ion-slide style="height: 1024px;">
+                <div class="holder" id="evoHotSpots" style="top:0px;left:0px;">
 
-                <div class="holder" style="top: 84px;left: 291px;">
-                    <img ng-src="img/clients/clients_2_txt.png" width="378" height="236">
-                </div>
+                    <div class="holder" style="top: 84px;left: 291px;">
+                        <img ng-src="img/clients/clients_2_txt.png" width="378" height="236">
+                    </div>
 
-                <div class="holder" style="top: 351px;left: 0px;">
-                    <img ng-src="img/clients/slide_clients_2.png" width="1024" height="674">
-                </div>
+                    <div class="holder" style="top: 351px;left: 0px;">
+                        <img ng-src="img/clients/slide_clients_2.png" width="1024" height="674">
+                    </div>
 
                     <div class="my_hotspot" style="width: 82px;height: 76px;top: 560px;left: 409px;"
                          ng-click="evolutionOpenPopUp('G1')"></div>
@@ -117,9 +117,7 @@
                          ng-click="evolutionOpenPopUp('O4')"></div>
 
 
-
                 </div>
-
 
 
             </ion-slide>
@@ -146,8 +144,8 @@
             </ion-slide>
             <ion-slide>
                 <div class="holder" style="top: 80px;left: 291px;">
-                <img ng-src="img/clients/clients_7.png" width="646" height="550">
-            </div>
+                    <img ng-src="img/clients/clients_7.png" width="646" height="550">
+                </div>
                 <div class="holder" style="top: 685px;left: 291px;">
                     <img ng-src="img/clients/clients_7_middle.png" width="659" height="238">
                 </div>
@@ -156,7 +154,7 @@
                 </div>
             </ion-slide>
             <ion-slide>
-                <div class="holder" style="top:0px;left:0px;" ng-controller="SlideSwipeCtrl" >
+                <div class="holder" style="top:0px;left:0px;" ng-controller="SlideSwipeCtrl">
                     <div class="holder" style="top: 80px;left: 290px;">
                         <img ng-src="img/clients/client_08_txt.png" width="662" height="435">
                     </div>
@@ -186,23 +184,20 @@
         </ion-slide-box>
 
 
-
-
-
-
     </ion-content>
-
 
 
     <div class="rightcone clients" id="clientsconeright"></div>
     <div class="leftCorner clients" id="clientsconeleft"><img ng-src="img/title_clients.png" width="126" height="140">
     </div>
 
-    <div class="evolOverlay"  ng-click="evoCloseModal()" >
+    <div class="evolOverlay" ng-click="evoCloseModal()">
 
-        <img  ng-src="{{evoNextImageSrc}}" id="evonextslide" on-swipe-left="swipeLeft()" on-swipe-right="swipeRight()" width="{{evoSlidewidth}}" height="{{evoSlideheight}}" class=""/>
+        <img ng-src="{{evoNextImageSrc}}" id="evonextslide" on-swipe-left="swipeLeft()" on-swipe-right="swipeRight()"
+             width="{{evoSlidewidth}}" height="{{evoSlideheight}}" class=""/>
 
-        <img ng-src="{{evoImageSrc}}" id="evocurrentslide" on-swipe-left="swipeLeft()" on-swipe-right="swipeRight()" width="{{evoSlidewidth}}" height="{{evoSlideheight}}"  class=""/>
+        <img ng-src="{{evoImageSrc}}" id="evocurrentslide" on-swipe-left="swipeLeft()" on-swipe-right="swipeRight()"
+             width="{{evoSlidewidth}}" height="{{evoSlideheight}}" class=""/>
 
     </div>
 

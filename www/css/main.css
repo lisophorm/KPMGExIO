@@ -57,7 +57,6 @@
     text-align: left;
     text-transform: uppercase;
 
-
 }
 .slider {
   /*  background-color: #cc0000; */
@@ -135,7 +134,7 @@
 	line-height: 18px;/* Approximation due to font substitution */
 	text-align: left;
 	position: absolute;
-	top: 27px;
+	top: 19px;
 	left: 263px;
 
 }
@@ -159,6 +158,7 @@
 
 }
 #navbutkpmg {
+	padding:16px;
 		display:block;
 	font-family: UniversforKPMG;
 	width:300px;
@@ -168,7 +168,7 @@
 	line-height:  18px;/* Approximation due to font substitution */
 	text-align: left;
 	position: absolute;
-	top: 27px;
+	top: 19px;
 	left: 829px;
 }
 #navbutkpmg a {
@@ -191,6 +191,7 @@
 
 }
 #navbutclients {
+	padding:16px;
 	display:block;
 	font-family: UniversforKPMG;
 	color: #c84e00;
@@ -201,7 +202,7 @@
 	line-height:  18px;/* Approximation due to font substitution */
 	text-align: left;
 	position: absolute;
-	top: 27px;
+	top: 19px;
 	left: 543px;
 }
 #navbutclients a {

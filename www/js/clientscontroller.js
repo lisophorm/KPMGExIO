@@ -39,7 +39,7 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
             'background-position-x': xTilt + 'px',
             'background-position-y': yTilt + 'px'
         }, 10);
-    }
+    };
 
 
     $scope.$on('$ionicView.afterLeave', function () {
@@ -80,10 +80,10 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
                 alt = 1695;
                 break;
             case 6:
-                alt = 1230+100;
+                alt = 1230+200;
                 break;
             default:
-                alt=800;
+                alt=900;
                 break;
 
         }
@@ -114,7 +114,7 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
        // window.addEventListener('deviceorientation', $scope.parallax , false);
     });
 
-    $scope.evolSrc="img/popups/B1.png"
+    $scope.evolSrc="img/popups/B1.png";
 
     $scope.$on('$ionicView.beforeEnter', function(){
         TweenLite.to(document.getElementById('clientsconeleft'), 0, {opacity:1});
@@ -247,7 +247,7 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
 
             $scope.currentSwipe++;
             $timeout(function () {
-                $scope.nextImageSrc=$scope.aImages[$scope.currentSwipe].src+ '?' + new Date().getTime();
+                $scope.evoNextImageSrc=$scope.aImages[$scope.currentSwipe].src+ '?' + new Date().getTime();
 
             }).then(function() {
                 console.log($scope.aImages[$scope.currentSwipe].src);
@@ -267,7 +267,7 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
             });
 
         }
-    }
+    };
 
     $scope.resetSlide=function(theScope) {
         console.log("resetSlide");
@@ -276,7 +276,7 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
             theScope.imageSrc=theScope.aImages[theScope.currentSwipe].src;
 
         })
-    }
+    };
 
     $scope.swipeRight=function() {
         console.log("swiperight");
@@ -291,7 +291,7 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
 
             $scope.currentSwipe--;
             $timeout(function () {
-                $scope.nextImageSrc=$scope.aImages[$scope.currentSwipe].src+ '?' + new Date().getTime();
+                $scope.evoNextImageSrc=$scope.aImages[$scope.currentSwipe].src+ '?' + new Date().getTime();
 
             }).then(function() {
                 console.log($scope.aImages[$scope.currentSwipe].src);
@@ -314,7 +314,7 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
 
 
 
-    }
+    };
 
     $scope.evolutionOpenPopUp=function(theSlide) {
 
