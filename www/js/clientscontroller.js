@@ -77,7 +77,7 @@ myApp.controller("ClientsController",function($scope, $location, $stateParams,$i
                 alt = 1013;
                 break;
             case 5:
-                alt = 1695;
+                alt = 1795;
                 break;
             case 6:
                 alt = 1230+200;
