@@ -47,6 +47,12 @@ myApp.controller("KPMGController", function ($scope, $location, $stateParams, $i
        // $(".leftCorner").css('backgroundPosition',backgroundPositionVal);
     }
 
+
+    $scope.booklet=function(theUrl) {
+        var ref = window.open("pdf/"+theUrl+".pdf", '_blank', 'toolbar=yes,enableViewportScale=yes,location=no');
+
+    }
+
     $scope.$on('$ionicView.afterLeave', function () {
 
         TweenLite.to(document.getElementById('kpmgconeleft'), 0, {opacity:0});
